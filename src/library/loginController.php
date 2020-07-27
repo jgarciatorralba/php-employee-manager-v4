@@ -22,6 +22,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header('Location: ../dashboard.php');
     } else {
         session_destroy();
-        header('Location: ../../index.php');
+        header('Location: ../../index.php?error=true');
     }
 }
