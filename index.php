@@ -1,17 +1,23 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header('Location: src/dashboard.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-session_start();
-
-
-// if (isset($_SESSION['userName'])) {
-//     header('Location: src/dashboard.php');
-// }
-
-?>
-
-<?php include('assets/head.html') ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Log in</title>
+</head>
 
 <body>
     <?php include('assets/header.html') ?>
