@@ -1,5 +1,4 @@
 <?php
-
 include('loginManager.php');
 
 session_start();
@@ -12,7 +11,6 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
 
     $logged = checkCredentials($username, $password);
 
-    // echo $logged;
     if ($logged) {
         $_SESSION['userName'] = $username;
         $_SESSION['password'] = $password;

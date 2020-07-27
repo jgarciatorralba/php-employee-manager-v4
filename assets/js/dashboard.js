@@ -15,7 +15,7 @@ $("#jsGrid").jsGrid({
 
     filtering: true,
     inserting: true,
-    editing: true,
+    editing: false,
     sorting: true,
     paging: true,
     pageSize: 5,
@@ -29,6 +29,11 @@ $("#jsGrid").jsGrid({
             $.ajax('../src/library/employeeController.php').done(d.resolve);
             return d.promise();
         }
+    },
+
+    rowClick: function (args) {
+        console.log(args.item.id);
+
     },
 
     fields: [{
