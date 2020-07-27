@@ -22,9 +22,9 @@
             <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
-        <?php include('assets/footer.html') ?>
     </div>
-
+    
+    <?php include('assets/footer.html') ?>
 
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
