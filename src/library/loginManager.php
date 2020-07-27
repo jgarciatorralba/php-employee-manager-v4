@@ -1,5 +1,7 @@
 <?php
 
+include_once('sessionHelper.php');
+
 function checkCredentials($username, $password)
 {
     $user = getUser($username);
@@ -18,4 +20,11 @@ function getUsers()
     $path = '../../resources/users.json';
     $data = file_get_contents($path);
     return json_decode($data)->users;
+}
+
+function logOut()
+{
+    $_SESSION = array();
+    session_destroy();
+    header('Location: ../index.php');
 }

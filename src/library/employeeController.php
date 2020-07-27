@@ -1,6 +1,6 @@
 <?php
 
-
+include_once('sessionHelper.php');
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':

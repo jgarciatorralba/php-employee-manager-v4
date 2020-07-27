@@ -1,14 +1,8 @@
 <?php
 
-include('loginManager.php');
+include_once('sessionHelper.php');
 
-session_start();
-
-if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    $_SESSION = array();
-    session_destroy();
-    header('Location: ../../index.php');
-}
+if (isset($_GET['logout'])) logOut();
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
@@ -19,9 +13,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (checkCredentials($username, $password)) {
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
+        $_SESSION['lifeTime'] = 600;
+        $_SESSION['time'] = time();
         header('Location: ../dashboard.php');
     } else {
         session_destroy();
-        header('Location: ../../index.php?error=true');
+        header('Location: ../../index.php?error');
     }
 }

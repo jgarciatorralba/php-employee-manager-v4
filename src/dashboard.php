@@ -1,3 +1,4 @@
+<?php include_once('library/sessionHelper.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 

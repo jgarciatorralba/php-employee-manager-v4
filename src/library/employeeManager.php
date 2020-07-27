@@ -1,11 +1,6 @@
 <?php
 
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
+include_once('sessionHelper.php');
 
 function addEmployee(array $newEmployee)
 {
