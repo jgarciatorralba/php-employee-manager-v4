@@ -7,13 +7,17 @@ const gender = [
 
 $("#jsGrid").jsGrid({
     width: "100%",
-    height: "500px",
 
     inserting: true,
     editing: true,
     sorting: true,
     paging: true,
     autoload: true,
+
+    pageSize: 15,
+    pageButtonCount: 5,
+
+    align: "center",
 
     controller: {
         loadData: function () {
@@ -24,17 +28,17 @@ $("#jsGrid").jsGrid({
     },
 
     fields: [
-        { name: "id", type: "number", editing: false },
-        { name: "name", type: "text" },
-        { name: "lastName", type: "text" },
-        { name: "email", type: "text" },
-        { name: "gender", type: "select", items: gender, valueField: "Id", textField: "Name" },
-        { name: "age", type: "number", valueField: 'age' },
-        { name: "streetAddress", type: "text" },
-        { name: "city", type: "text" },
-        { name: "state", type: "text" },
-        { name: "postalCode", type: "text" },
-        { name: "phoneNumber", type: "text" },
+        { name: "id", type: "number", title: "id", width: 30, editing: false },
+        { name: "name", type: "text", title: "Name", width: 60 },
+        { name: "lastName", type: "text", title: "Last Name", width: 60 },
+        { name: "email", type: "text", title: "Email" },
+        { name: "gender", type: "select", title: "Gender", items: gender, valueField: "Id", textField: "Name", width: 50 },
+        { name: "age", type: "number", title: "Age", width: 30, valueField: 'age' },
+        { name: "streetAddress", type: "text", title: "Street", width: 30 },
+        { name: "city", type: "text", title: "City", width: 70 },
+        { name: "state", type: "text", title: "State", width: 30 },
+        { name: "postalCode", type: "text", title: "Postal", width: 60 },
+        { name: "phoneNumber", type: "text", title: "Phone Number", width: 80 },
         { type: "control" }
     ]
 });

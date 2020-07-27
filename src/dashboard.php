@@ -12,7 +12,15 @@
 </head>
 
 <body>
-    <div id="jsGrid"></div>
+    <?php include('../assets/header.html') ?>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="jsGrid"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
