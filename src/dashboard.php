@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <?php include('../assets/header.html') ?>
     <div id="jsGrid"></div>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
