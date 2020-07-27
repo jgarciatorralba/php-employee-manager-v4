@@ -22,7 +22,11 @@ $("#jsGrid").jsGrid({
     controller: {
         loadData: function () {
             const d = $.Deferred();
-            $.ajax('../src/library/employeeController.php').done(d.resolve);
+
+            $.ajax('../src/library/employeeController.php').done(response => {
+                d.resolve(response);
+            });
+
             return d.promise();
         }
     },
