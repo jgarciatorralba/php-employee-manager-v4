@@ -11,7 +11,6 @@ const gender = [{
 
 $("#jsGrid").jsGrid({
     width: "100%",
-    height: "500px",
 
     filtering: true,
     inserting: true,
@@ -23,10 +22,19 @@ $("#jsGrid").jsGrid({
     autoload: true,
     deleteConfirm: "Do you really want to delete this employee?",
 
+    pageSize: 15,
+    pageButtonCount: 5,
+
+    align: "center",
+
     controller: {
         loadData: function () {
             const d = $.Deferred();
-            $.ajax('../src/library/employeeController.php').done(d.resolve);
+
+            $.ajax('../src/library/employeeController.php').done(response => {
+                d.resolve(response);
+            });
+
             return d.promise();
         }
     },
@@ -34,52 +42,72 @@ $("#jsGrid").jsGrid({
     fields: [{
             name: "id",
             type: "number",
-            editing: false,
-            visible: false
+            title: "id",
+            width: 30,
+            editing: false
         },
         {
             name: "name",
-            type: "text"
+            type: "text",
+            title: "Name",
+            width: 60
         },
         {
             name: "lastName",
-            type: "text"
+            type: "text",
+            title: "Last Name",
+            width: 60
         },
         {
             name: "email",
-            type: "text"
+            type: "text",
+            title: "Email"
         },
         {
             name: "gender",
             type: "select",
+            title: "Gender",
             items: gender,
             valueField: "Id",
-            textField: "Name"
+            textField: "Name",
+            width: 50
         },
         {
             name: "age",
             type: "number",
+            title: "Age",
+            width: 30,
             valueField: 'age'
         },
         {
             name: "streetAddress",
-            type: "text"
+            type: "text",
+            title: "Street",
+            width: 30
         },
         {
             name: "city",
-            type: "text"
+            type: "text",
+            title: "City",
+            width: 70
         },
         {
             name: "state",
-            type: "text"
+            type: "text",
+            title: "State",
+            width: 30
         },
         {
             name: "postalCode",
-            type: "text"
+            type: "text",
+            title: "Postal",
+            width: 60
         },
         {
             name: "phoneNumber",
-            type: "text"
+            type: "text",
+            title: "Phone Number",
+            width: 80
         },
         {
             type: "control"
