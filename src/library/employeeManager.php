@@ -74,6 +74,7 @@ function removeAvatar($id)
 function getQueryStringParameters(): array
 {
     // TODO implement it
+    return [];
 }
 
 
