@@ -44,7 +44,6 @@ $("#jsGrid").jsGrid({
     },
 
     rowClick: function (args) {
-        // console.log(args.item.id);
         $path = `employee.php?id=${args.item.id}`;
         location.href = $path;
     },
