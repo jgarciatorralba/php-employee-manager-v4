@@ -1,17 +1,18 @@
 <?php
+include_once('loginManager.php');
+
 session_start();
-//Verifies if session is active
-if (isset($_SESSION['userName'])) {
-    if (time() - $_SESSION['start_time'] > $_SESSION['lifeTime']) {
-        session_destroy();
-        //unset session variables
-        unset($_SESSION['userName']);
-        unset($_SESSION['password']);
-        unset($_SESSION['start_time']);
-        //And redirect to index.php (only for other pages)
-        header('Location: ../../index.php');
-    }
-    echo "We are inside session";
-} else {
-    header('Location: ../../index.php');
+
+
+if (!activeSession()) header('Location: ../index.php');
+else if (sessionTimeout()) logout();
+
+function activeSession()
+{
+    return isset($_SESSION['username']);
+}
+
+function sessionTimeout()
+{
+    return time() - $_SESSION['time'] > $_SESSION['lifeTime'];
 }

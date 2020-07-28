@@ -1,4 +1,25 @@
-<!-- TODO Employee view -->
-<?php
+<?php include_once('library/sessionHelper.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
 
-echo "Hi we are in user ID: " . $_GET['id'];
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Employee</title>
+</head>
+
+<body>
+    <?php include('../assets/header.html') ?>
+
+    <div class="container">
+        <div class="row"></div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

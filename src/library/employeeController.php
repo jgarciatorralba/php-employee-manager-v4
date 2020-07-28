@@ -1,31 +1,51 @@
 <?php
 
-switch ($_SERVER['REQUEST_METHOD']) {
-    case 'GET':
+include_once('sessionHelper.php');
 
-        include('employeeManager.php');
+include_once('employeeManager.php');
 
-        header('Content-Type: application/json');
+header('Content-Type: application/json');
 
-        $employees = readEmployees();
+if (requestHandler() == false) {
+    $response = new stdClass();
+    $response->success = false;
+    echo json_encode($response);
+}
 
-        echo json_encode($employees);
-        break;
+function requestHandler()
+{
+    switch ($_SERVER['REQUEST_METHOD']) {
+        case 'GET':
+            return getHandler();
+        case 'POST':
+            return postHandler();
+        case 'PUT':
+            return putHandler();
+        case 'DELETE':
+            return deleteHandler();
+        default:
+            return false;
+    }
+}
 
-    case 'POST':
-        // codigo
-        break;
-    case 'PUT':
-        echo 'prueba de put';
-        break;
-    case 'UPDATE':
-        echo 'prueba de update';
-        // codigo
-        break;
-    case 'DELETE':
-        echo 'prueba de delete';
-        parse_str(file_get_contents("php://input"), $data);
-        echo $data['fruit'];
-        // codigo
-        break;
+function getHandler()
+{
+    echo json_encode(readEmployees());
+}
+
+function postHandler()
+{
+}
+
+function putHandler()
+{
+    parse_str(file_get_contents("php://input"), $data);
+    if (!isset($data['id'])) return false;
+}
+
+function deleteHandler()
+{
+    parse_str(file_get_contents("php://input"), $data);
+    if (!isset($data['id'])) return false;
+    return deleteEmployee($data['id']);
 }

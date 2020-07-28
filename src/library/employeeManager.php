@@ -1,11 +1,6 @@
 <?php
 
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
+include_once('sessionHelper.php');
 
 function addEmployee(array $newEmployee)
 {
@@ -26,7 +21,7 @@ function addEmployee(array $newEmployee)
     ];
 
     array_push($employees, $employee);
-    writeEmployees($employees);
+    return writeEmployees($employees);
 }
 
 
@@ -34,10 +29,9 @@ function deleteEmployee(string $id)
 {
     $employees = readEmployees();
     $key = array_search($id, array_column($employees, 'id'));
-    if ($key) {
-        array_splice($employees, $key, 1);
-        writeEmployees($employees);
-    }
+    if (!is_numeric($key)) return false;
+    array_splice($employees, $key, 1);
+    return writeEmployees($employees);
 }
 
 
@@ -45,6 +39,7 @@ function updateEmployee(array $updateEmployee)
 {
     $employees = readEmployees();
     $key = array_search($updateEmployee['id'], array_column($employees, 'id'));
+    if (!is_numeric($key)) return false;
 
     $employees[$key]->name = $updateEmployee['name'];
     $employees[$key]->lastName = $updateEmployee['lastName'];
@@ -57,7 +52,7 @@ function updateEmployee(array $updateEmployee)
     $employees[$key]->postalCode = $updateEmployee['postalCode'];
     $employees[$key]->phoneNumber = $updateEmployee['phoneNumber'];
 
-    writeEmployees($employees);
+    return writeEmployees($employees);
 }
 
 
@@ -65,8 +60,8 @@ function getEmployee(string $id)
 {
     $employees = readEmployees();
     $key = array_search($id, array_column($employees, 'id'));
-    if (is_numeric($key)) return $employees[$key];
-    return false;
+    if (!is_numeric($key)) return false;
+    return $employees[$key];
 }
 
 
@@ -79,6 +74,7 @@ function removeAvatar($id)
 function getQueryStringParameters(): array
 {
     // TODO implement it
+    return [];
 }
 
 
@@ -101,5 +97,6 @@ function writeEmployees($data)
 {
     $path = '../../resources/employees.json';
     $data = json_encode($data, JSON_PRETTY_PRINT);
-    file_put_contents($path, $data);
+    $result = file_put_contents($path, $data);
+    return is_numeric($result);
 }
