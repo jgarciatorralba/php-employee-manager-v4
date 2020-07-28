@@ -65,7 +65,7 @@ function getEmployee(string $id)
 {
     $employees = readEmployees();
     $key = array_search($id, array_column($employees, 'id'));
-    if ($key) return $employees[$key];
+    if (is_numeric($key)) return $employees[$key];
     return false;
 }
 
