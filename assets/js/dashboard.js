@@ -20,7 +20,8 @@ $("#jsGrid").jsGrid({
     pageSize: 5,
     pageButtonCount: 3,
     autoload: true,
-    deleteConfirm: "Do you really want to delete this employee?",
+    confirmDeleting: true,
+    deleteConfirm: "Are you sure?",
 
     pageSize: 15,
     pageButtonCount: 5,
@@ -36,7 +37,10 @@ $("#jsGrid").jsGrid({
             });
 
             return d.promise();
-        }
+        },
+        insertItem: $.noop,
+        updateItem: $.noop,
+        deleteItem: $.noop
     },
 
     rowClick: function (args) {
