@@ -32,7 +32,7 @@ $("#jsGrid").jsGrid({
         loadData: function () {
             const d = $.Deferred();
 
-            $.ajax('../src/library/employeeController.php').done(response => {
+            $.ajax('library/employeeController.php').done(response => {
                 d.resolve(response);
             });
 
@@ -44,8 +44,9 @@ $("#jsGrid").jsGrid({
     },
 
     rowClick: function (args) {
-        console.log(args.item.id);
-
+        // console.log(args.item.id);
+        $path = `employee.php?id=${args.item.id}`;
+        location.href = $path;
     },
 
     fields: [{
