@@ -12,10 +12,10 @@ const gender = [{
 $("#jsGrid").jsGrid({
     width: "100%",
 
-    filtering: true,
+    filtering: false,
     inserting: true,
     editing: false,
-    sorting: true,
+    sorting: false,
     paging: true,
     pageSize: 5,
     pageButtonCount: 3,
@@ -38,14 +38,34 @@ $("#jsGrid").jsGrid({
 
             return d.promise();
         },
-        insertItem: $.noop,
-        updateItem: $.noop,
-        deleteItem: $.noop
+        insertItem: function () {
+            // const d = $.Deferred();
+
+            // $.ajax('library/employeeController.php').done(response => {
+            //     d.resolve(response);
+            // });
+
+            // return d.promise();
+        },
+        deleteItem: function (item) {
+            return $.ajax('library/employeeController.php', {
+                method: "DELETE",
+                data: {
+                    id: item.id
+                },
+                error: (jqXHR, err) => {
+                    console.log(err);
+                    if (jqXHR.status == 403) {
+                        console.log("handle forbidden error code");
+                        alert("You are not authorized to delete this item, check with your manager...");
+                    }
+                },
+            })
+        }
     },
 
     rowClick: function (args) {
-        $path = `employee.php?id=${args.item.id}`;
-        location.href = $path;
+        location.href = `employee.php?id=${args.item.id}`;
     },
 
     fields: [{
@@ -119,7 +139,10 @@ $("#jsGrid").jsGrid({
             width: 80
         },
         {
-            type: "control"
+            type: "control",
+            editButton: false,
+            filtering: false,
+            sorting: false
         }
     ]
 });

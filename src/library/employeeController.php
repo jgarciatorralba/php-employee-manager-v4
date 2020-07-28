@@ -28,6 +28,8 @@ function requestHandler()
 
 function getHandler()
 {
+    // parse_str(file_get_contents("php://input"), $data);
+    // echo $data;
     echo json_encode(readEmployees());
 }
 
@@ -39,5 +41,6 @@ function deleteHandler()
 {
     parse_str(file_get_contents("php://input"), $data);
     if (!isset($data['id'])) return false;
+    else header("Location: ./index.php");
     return deleteEmployee($data['id']);
 }
