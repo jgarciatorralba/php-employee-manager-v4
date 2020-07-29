@@ -81,7 +81,8 @@ $("#jsGrid").jsGrid({
             type: "number",
             title: "id",
             width: 40,
-            editing: false
+            editing: false,
+            visible: false
         },
         {
             name: "name",
