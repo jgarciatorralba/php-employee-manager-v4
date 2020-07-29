@@ -13,6 +13,7 @@
 
 <body class="d-flex flex-column min-vh-100">
     <?php include('../assets/header.html') ?>
+    <?php include('imageGallery.php') ?>
 
     <form action="library/employeeController.php" method="post">
         <div class="container-sm border p-4 mt-5 employee-container">
