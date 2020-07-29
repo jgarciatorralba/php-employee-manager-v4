@@ -19,7 +19,7 @@ if (isset($_SESSION['username'])) {
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <?php include('assets/header.html') ?>
+    <?php include('assets/headerLogin.html') ?>
 
     <div class="container-sm m-auto">
         <form class="form-signin text-center" action="src/library/loginController.php" method="post">
