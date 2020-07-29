@@ -12,7 +12,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if (checkCredentials($username, $password)) {
         $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
         $_SESSION['lifeTime'] = 600;
         $_SESSION['time'] = time();
         header('Location: ../dashboard.php');

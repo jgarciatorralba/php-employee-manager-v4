@@ -13,16 +13,17 @@ if (isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/img/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <title>Log in</title>
 </head>
 
-<body>
-    <?php include('assets/header.html') ?>
+<body class="d-flex flex-column min-vh-100">
+    <?php include('assets/headerLogin.html') ?>
 
-    <div class="container">
-        <form class="form-signin text-center mt-5" action="src/library/loginController.php" method="post">
+    <div class="container-sm m-auto">
+        <form class="form-signin text-center" action="src/library/loginController.php" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <label for="inputName" class="sr-only">Username</label>
             <input type="text" id="inputName" class="form-control" name="username" placeholder="Username" required autofocus>
