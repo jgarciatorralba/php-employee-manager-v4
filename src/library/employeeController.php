@@ -6,29 +6,28 @@ include_once('employeeManager.php');
 
 header('Content-Type: application/json');
 
-if (requestHandler() === false) {
-    $response = new stdClass();
-    $response->success = false;
-    echo json_encode($response);
-}
-
-function requestHandler()
-{
-    switch ($_SERVER['REQUEST_METHOD']) {
-        case 'GET':
-            return getHandler();
-        case 'POST':
-            return postHandler();
-        case 'DELETE':
-            return deleteHandler();
-        default:
-            return false;
-    }
+switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        $data = getHandler();
+        if ($data) echo $data;
+        else http_response_code(404);
+        break;
+    case 'POST':
+        if (!postHandler()) http_response_code(500);
+        break;
+    case 'DELETE':
+        if (!deleteHandler()) http_response_code(500);
+        break;
+    default:
+        http_response_code(400);
+        break;
 }
 
 function getHandler()
 {
-    echo json_encode(readEmployees());
+    if (isset($_GET['employee'])) $data = getEmployee($_GET['employee']);
+    else $data = readEmployees();
+    return $data ? json_encode($data) : false;
 }
 
 function postHandler()
