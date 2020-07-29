@@ -10,7 +10,7 @@ $("#jsGrid").jsGrid({
     confirmDeleting: true,
     deleteConfirm: "Are you sure?",
 
-    pageSize: 15,
+    pageSize: 10,
     pageButtonCount: 5,
 
     align: "center",
