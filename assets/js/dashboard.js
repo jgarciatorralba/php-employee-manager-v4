@@ -39,7 +39,6 @@ $("#jsGrid").jsGrid({
             return d.promise();
         },
         insertItem: function (item) {
-            console.log(item);
             return $.ajax('library/employeeController.php', {
                 method: "POST",
                 data: item,
@@ -49,9 +48,6 @@ $("#jsGrid").jsGrid({
                         console.log("handle forbidden error code");
                         alert("You are not authorized to delete this item, check with your manager...");
                     }
-                },
-                success: (result, status, jqXHR) => {
-                    console.log(result);
                 }
             })
         },
@@ -62,7 +58,6 @@ $("#jsGrid").jsGrid({
                     id: item.id
                 },
                 error: (jqXHR, err) => {
-                    console.log(err);
                     if (jqXHR.status == 403) {
                         console.log("handle forbidden error code");
                         alert("You are not authorized to delete this item, check with your manager...");
