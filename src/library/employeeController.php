@@ -32,10 +32,15 @@ function getHandler()
 
 function postHandler()
 {
-    $newEmployee = $_POST;
-    if (!isset($newEmployee)) return false;
-    else header("Location: ./index.php");
-    return addEmployee($newEmployee);
+    $employee = $_POST;
+    if (!isset($employee)) return false;
+    if (!isset($employee['id'])) {
+        $return = addEmployee($employee);
+    } else {
+        $return = updateEmployee($employee);
+        header('Location: ../employee.php?id=' . $employee['id']);
+    }
+    return $return;
 }
 
 function deleteHandler()
