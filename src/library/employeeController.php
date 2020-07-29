@@ -28,13 +28,15 @@ function requestHandler()
 
 function getHandler()
 {
-    // parse_str(file_get_contents("php://input"), $data);
-    // echo $data;
     echo json_encode(readEmployees());
 }
 
 function postHandler()
 {
+    $newEmployee = $_POST;
+    if (!isset($newEmployee)) return false;
+    else header("Location: ./index.php");
+    return addEmployee($newEmployee);
 }
 
 function deleteHandler()

@@ -38,14 +38,22 @@ $("#jsGrid").jsGrid({
 
             return d.promise();
         },
-        insertItem: function () {
-            // const d = $.Deferred();
-
-            // $.ajax('library/employeeController.php').done(response => {
-            //     d.resolve(response);
-            // });
-
-            // return d.promise();
+        insertItem: function (item) {
+            console.log(item);
+            return $.ajax('library/employeeController.php', {
+                method: "POST",
+                data: item,
+                error: (jqXHR, err) => {
+                    console.log(err);
+                    if (jqXHR.status == 403) {
+                        console.log("handle forbidden error code");
+                        alert("You are not authorized to delete this item, check with your manager...");
+                    }
+                },
+                success: (result, status, jqXHR) => {
+                    console.log(result);
+                }
+            })
         },
         deleteItem: function (item) {
             return $.ajax('library/employeeController.php', {
@@ -72,7 +80,7 @@ $("#jsGrid").jsGrid({
             name: "id",
             type: "number",
             title: "id",
-            width: 30,
+            width: 40,
             editing: false
         },
         {
@@ -130,7 +138,7 @@ $("#jsGrid").jsGrid({
             name: "postalCode",
             type: "text",
             title: "Postal",
-            width: 60
+            width: 45
         },
         {
             name: "phoneNumber",
