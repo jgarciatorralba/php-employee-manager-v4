@@ -21,7 +21,7 @@ if (isset($_SESSION['username'])) {
 <body class="d-flex flex-column min-vh-100">
     <?php include('assets/header.html') ?>
 
-    <div class="container-sm">
+    <div class="container-sm m-auto">
         <form class="form-signin text-center" action="src/library/loginController.php" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <label for="inputName" class="sr-only">Username</label>
