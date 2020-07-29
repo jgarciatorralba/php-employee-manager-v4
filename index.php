@@ -18,11 +18,11 @@ if (isset($_SESSION['username'])) {
     <title>Log in</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php include('assets/header.html') ?>
 
-    <div class="container">
-        <form class="form-signin text-center mt-5" action="src/library/loginController.php" method="post">
+    <div class="container-sm">
+        <form class="form-signin text-center" action="src/library/loginController.php" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <label for="inputName" class="sr-only">Username</label>
             <input type="text" id="inputName" class="form-control" name="username" placeholder="Username" required autofocus>

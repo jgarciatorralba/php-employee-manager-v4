@@ -12,16 +12,14 @@
     <title>Dashboard</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php include('../assets/header.html') ?>
 
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div id="jsGrid"></div>
-            </div>
-        </div>
+        <div id="jsGrid"></div>
     </div>
+
+    <?php include('../assets/footer.html') ?>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
