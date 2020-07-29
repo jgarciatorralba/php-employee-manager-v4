@@ -1,1 +1,5 @@
-<?php include_once('sessionHelper.php');
+<?php
+
+include_once('sessionHelper.php');
+
+header('Location: ../dashboard.php');
