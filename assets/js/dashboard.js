@@ -17,13 +17,7 @@ $("#jsGrid").jsGrid({
 
     controller: {
         loadData: function () {
-            const d = $.Deferred();
-
-            $.ajax('library/employeeController.php').done(response => {
-                d.resolve(response);
-            });
-
-            return d.promise();
+            return $.ajax('library/employeeController.php');
         },
 
         insertItem: function (item) {

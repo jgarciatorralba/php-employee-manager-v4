@@ -102,19 +102,5 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
-    },
-    {
-        "id": 9,
-        "name": "dqwqwdqwwd",
-        "lastName": "",
-        "email": "",
-        "gender": null,
-        "age": "",
-        "streetAddress": "",
-        "city": "",
-        "state": "",
-        "postalCode": "",
-        "phoneNumber": "",
-        "avatar": ""
     }
 ]
