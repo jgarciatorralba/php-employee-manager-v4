@@ -2,6 +2,8 @@
 
 include_once('sessionHelper.php');
 
+$API_key = "0A2ED4BA-4E53420C-96665B70-60C6502A";
+
 if (isset($_GET["search"])) {
     $search = $_GET["search"];
     $entity = $_GET["type"];

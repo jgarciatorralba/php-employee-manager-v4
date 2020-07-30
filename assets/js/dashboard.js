@@ -25,19 +25,19 @@ $("#jsGrid").jsGrid({
 
             return d.promise();
         },
-        insertItem: function (item) {
-            return $.ajax('library/employeeController.php', {
-                method: "POST",
-                data: item,
-                error: (jqXHR, err) => {
-                    console.log(err);
-                    if (jqXHR.status == 403) {
-                        console.log("handle forbidden error code");
-                        alert("You are not authorized to delete this item, check with your manager...");
-                    }
-                }
-            });
-        },
+        // insertItem: function (item) {
+        //     return $.ajax('library/employeeController.php', {
+        //         method: "POST",
+        //         data: item,
+        //         error: (jqXHR, err) => {
+        //             console.log(err);
+        //             if (jqXHR.status == 403) {
+        //                 console.log("handle forbidden error code");
+        //                 alert("You are not authorized to delete this item, check with your manager...");
+        //             }
+        //         }
+        //     });
+        // },
         deleteItem: function (item) {
             return $.ajax('library/employeeController.php', {
                 method: "DELETE",
@@ -57,9 +57,24 @@ $("#jsGrid").jsGrid({
     rowClick: function (args) {
         location.href = `employee.php?id=${args.item.id}`;
     },
+    onItemInserting: function (args) {
+        // console.log(args);
+        $.ajax('library/employeeController.php', {
+            method: "POST",
+            data: args.item,
+            error: (jqXHR, err) => {
+                console.log(err);
+                if (jqXHR.status == 403) {
+                    console.log("handle forbidden error code");
+                    alert("You are not authorized to delete this item, check with your manager...");
+                }
+            }
+        });
+        location.href = "../index.php";
+    },
 
     fields: [
-        { name: "id", type: "number", visible: false },
+        { name: "id", type: "number", visible: true },
         { name: "name", type: "text", title: "Name", width: 80 },
         { name: "email", type: "text", title: "Email" },
         { name: "age", type: "number", title: "Age", width: 40 },

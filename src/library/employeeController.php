@@ -34,8 +34,7 @@ function postHandler()
 {
     $newEmployee = $_POST;
     if (!isset($newEmployee)) return false;
-    else header("Location: ./index.php");
-    return addEmployee($newEmployee);
+    else return addEmployee($newEmployee);
 }
 
 function deleteHandler()
