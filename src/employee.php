@@ -26,7 +26,7 @@
                 <div class="col-md">
                     <div class="form-group">
                         <div class="avatar-image mx-auto" cla>
-                            <img src="../assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded border">
+                            <img src="../assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded">
                         </div>
                     </div>
                 </div>
