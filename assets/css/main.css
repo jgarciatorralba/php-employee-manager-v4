@@ -1,22 +1,27 @@
 .employee-container {
     max-width: 980px;
 }
-.selected-img{
+
+.selected-img {
     width: 100px;
     height: 120px;
     border: solid 1px grey;
 }
-.avatar-gallery{
+
+.avatar-gallery {
     list-style: none;
 }
-.avatar-gallery li{
+
+.avatar-gallery li {
     display: inline;
     margin-right: 10px;
 }
-.avatar-image{
+
+.avatar-image {
     width: 125px;
     height: 125px;
 }
+
 .avatar-image img {
     min-width: 100%;
     min-height: 100%;
