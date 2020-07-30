@@ -6,22 +6,21 @@ function addEmployee(array $newEmployee)
 {
     $employees = readEmployees();
 
-    $newId = getNextIdentifier($employees);
+    $employee = new stdClass();
 
-    $employee = [
-        'id' => $newId,
-        'name' => $newEmployee['name'],
-        'lastName' => $newEmployee['lastName'],
-        'email' => $newEmployee['email'],
-        'gender' => $newEmployee['gender'],
-        'age' => $newEmployee['age'],
-        'streetAddress' => $newEmployee['streetAddress'],
-        'city' => $newEmployee['city'],
-        'state' => $newEmployee['state'],
-        'postalCode' => $newEmployee['postalCode'],
-        'phoneNumber' => $newEmployee['phoneNumber'],
-        'avatar' => $newEmployee['avatar']
-    ];
+    $employee->id = getNextIdentifier($employees);
+
+    if (isset($newEmployee['name'])) $employee->name = $newEmployee['name'];
+    if (isset($newEmployee['lastName'])) $employee->lastName = $newEmployee['lastName'];
+    if (isset($newEmployee['email'])) $employee->email = $newEmployee['email'];
+    if (isset($newEmployee['gender'])) $employee->gender = $newEmployee['gender'];
+    if (isset($newEmployee['age'])) $employee->age = $newEmployee['age'];
+    if (isset($newEmployee['streetAddress'])) $employee->streetAddress = $newEmployee['streetAddress'];
+    if (isset($newEmployee['city'])) $employee->city = $newEmployee['city'];
+    if (isset($newEmployee['state'])) $employee->state = $newEmployee['state'];
+    if (isset($newEmployee['postalCode'])) $employee->postalCode = $newEmployee['postalCode'];
+    if (isset($newEmployee['phoneNumber'])) $employee->phoneNumber = $newEmployee['phoneNumber'];
+    if (isset($newEmployee['avatar'])) $employee->avatar = $newEmployee['avatar'];
 
     array_push($employees, $employee);
 
