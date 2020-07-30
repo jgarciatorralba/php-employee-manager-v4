@@ -15,17 +15,18 @@
     },
     {
         "id": "2",
-        "name": "John",
+        "redirect": "true",
+        "avatar": "https:\/\/i.imgur.com\/oC8EjRE.jpg",
+        "name": "Joanna",
         "lastName": "Doe",
         "email": "jhondoe@foo.com",
-        "gender": "man",
+        "gender": "woman",
         "city": "New York",
         "streetAddress": "89",
         "state": "WA",
-        "age": "34",
+        "age": "36",
         "postalCode": "09889",
-        "phoneNumber": "1283645645",
-        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/Lhdg_j7p.jpg"
+        "phoneNumber": "1283645645"
     },
     {
         "id": "3",

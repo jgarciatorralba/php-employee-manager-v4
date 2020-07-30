@@ -5,26 +5,9 @@ include_once('sessionHelper.php');
 function addEmployee(array $newEmployee)
 {
     $employees = readEmployees();
-
-    $employee = new stdClass();
-
-    $employee->id = getNextIdentifier($employees);
-
-    if (isset($newEmployee['name'])) $employee->name = $newEmployee['name'];
-    if (isset($newEmployee['lastName'])) $employee->lastName = $newEmployee['lastName'];
-    if (isset($newEmployee['email'])) $employee->email = $newEmployee['email'];
-    if (isset($newEmployee['gender'])) $employee->gender = $newEmployee['gender'];
-    if (isset($newEmployee['age'])) $employee->age = $newEmployee['age'];
-    if (isset($newEmployee['streetAddress'])) $employee->streetAddress = $newEmployee['streetAddress'];
-    if (isset($newEmployee['city'])) $employee->city = $newEmployee['city'];
-    if (isset($newEmployee['state'])) $employee->state = $newEmployee['state'];
-    if (isset($newEmployee['postalCode'])) $employee->postalCode = $newEmployee['postalCode'];
-    if (isset($newEmployee['phoneNumber'])) $employee->phoneNumber = $newEmployee['phoneNumber'];
-    if (isset($newEmployee['avatar'])) $employee->avatar = $newEmployee['avatar'];
-
-    array_push($employees, $employee);
-
-    return writeEmployees($employees) ? $employee : false;
+    $newEmployee['id'] = getNextIdentifier($employees);
+    array_push($employees, $newEmployee);
+    return writeEmployees($employees) ? $newEmployee : false;
 }
 
 
@@ -43,19 +26,7 @@ function updateEmployee(array $updateEmployee)
     $employees = readEmployees();
     $key = array_search($updateEmployee['id'], array_column($employees, 'id'));
     if (!is_numeric($key)) return false;
-
-    $employees[$key]->name = $updateEmployee['name'];
-    $employees[$key]->lastName = $updateEmployee['lastName'];
-    $employees[$key]->email = $updateEmployee['email'];
-    $employees[$key]->gender = $updateEmployee['gender'];
-    $employees[$key]->age = $updateEmployee['age'];
-    $employees[$key]->streetAddress = $updateEmployee['streetAddress'];
-    $employees[$key]->city = $updateEmployee['city'];
-    $employees[$key]->state = $updateEmployee['state'];
-    $employees[$key]->postalCode = $updateEmployee['postalCode'];
-    $employees[$key]->phoneNumber = $updateEmployee['phoneNumber'];
-    $employees[$key]->avatar = $updateEmployee['avatar'];
-
+    $employees[$key] = $updateEmployee;
     return writeEmployees($employees) ? $employees[$key] : false;
 }
 
