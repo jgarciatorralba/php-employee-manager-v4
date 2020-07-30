@@ -8,15 +8,36 @@
     <link href="../assets/img/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+
     <title>Employee</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <?php include('../assets/header.html') ?>
-    <?php include('imageGallery.php') ?>
+    <?php include('../assets/header.html'); ?>
 
     <form action="library/employeeController.php" method="post">
         <div class="container-sm border p-4 mt-5 employee-container">
+            <!-- <div class="row">
+                <?php
+                // if (property_exists($employee, "photo")) echo "<img src='$employee->photo' alt='No avatar' width='300' height='300'>";
+                // else echo "No avatar chosen";
+                ?>
+            </div> -->
+
+            <?php
+            include('imageGallery.php');
+            ?>
+
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-group">
+                        <input type="text" class="form-control invisible" name="avatar-Photo" id="avatar-Photo" placeholder="" value="">
+                    </div>
+                </div>
+                <!-- <div class="col-md">
+                    <input type="text" class="form-control invisible" name="avatar-Photo" id="avatar-Photo" placeholder="" value="">
+                </div> -->
+            </div>
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">

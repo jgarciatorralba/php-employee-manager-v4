@@ -1,3 +1,15 @@
 .employee-container {
     max-width: 980px;
 }
+.selected-img{
+    width: 100px;
+    height: 120px;
+    border: solid 1px grey;
+}
+.avatar-gallery{
+    list-style: none;
+}
+.avatar-gallery li{
+    display: inline;
+    margin-right: 10px;
+}
