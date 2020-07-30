@@ -15,6 +15,9 @@ function fillForm(employee) {
     for (const [key, value] of Object.entries(employee)) {
         $(`[name=${key}]`).val(value);
     }
+    if (employee.hasOwnProperty('avatar') && employee.avatar !== '') {
+        $('#avatar-image').attr('src', employee.avatar);
+    }
 }
 
 $("#avatar-image").click((e) => {
