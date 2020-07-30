@@ -19,7 +19,8 @@ function addEmployee(array $newEmployee)
         'city' => $newEmployee['city'],
         'state' => $newEmployee['state'],
         'postalCode' => $newEmployee['postalCode'],
-        'phoneNumber' => $newEmployee['phoneNumber']
+        'phoneNumber' => $newEmployee['phoneNumber'],
+        'avatar' => $newEmployee['avatar']
     ];
 
     array_push($employees, $employee);
@@ -53,6 +54,7 @@ function updateEmployee(array $updateEmployee)
     $employees[$key]->state = $updateEmployee['state'];
     $employees[$key]->postalCode = $updateEmployee['postalCode'];
     $employees[$key]->phoneNumber = $updateEmployee['phoneNumber'];
+    $employees[$key]->avatar = $updateEmployee['avatar'];
 
     return writeEmployees($employees);
 }

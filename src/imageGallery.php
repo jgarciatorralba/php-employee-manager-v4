@@ -20,6 +20,7 @@
                         const image = $(event.target);
                         const url = image.attr('src');
                         $('#avatar-image').attr('src', url);
+                        $('#avatarInput').val(url);
                     })
                 }
             }
