@@ -112,16 +112,16 @@
     },
     {
         "id": 10,
-        "name": "Roberto",
+        "name": "Noelia",
         "lastName": "Smith",
         "email": "hola@caracola.xd",
-        "gender": "man",
+        "gender": "woman",
         "age": "25",
         "streetAddress": "42",
         "city": "Barcelona",
         "state": "NY",
         "postalCode": "423422",
         "phoneNumber": "1242343245",
-        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/T5rm0m7W.jpg"
+        "avatar": "https:\/\/randomuser.me\/api\/portraits\/women\/56.jpg"
     }
 ]
