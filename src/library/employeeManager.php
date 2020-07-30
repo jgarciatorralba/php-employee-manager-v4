@@ -24,7 +24,8 @@ function addEmployee(array $newEmployee)
     ];
 
     array_push($employees, $employee);
-    return writeEmployees($employees) ? $newId : false;
+
+    return writeEmployees($employees) ? $employee : false;
 }
 
 
@@ -71,14 +72,17 @@ function getEmployee(string $id)
 
 function removeAvatar($id)
 {
-    // TODO implement it
+    $employees = readEmployees();
+    $key = array_search($id, array_column($employees, 'id'));
+    if (!is_numeric($key)) return false;
+    unset($employees[$key]);
+    return writeEmployees($employees);
 }
 
 
 function getQueryStringParameters(): array
 {
-    // TODO implement it
-    return [];
+    return $_GET;
 }
 
 
