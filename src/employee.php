@@ -8,7 +8,6 @@
     <link href="../assets/img/favicon.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
-
     <title>Employee</title>
 </head>
 
@@ -16,11 +15,10 @@
     <?php include('../assets/header.html'); ?>
 
     <form action="library/employeeController.php" method="post">
+        <input type="text" name="id" class="d-none">
         <div class="container-sm border p-4 mt-5 employee-container">
 
-            <?php
-            include('imageGallery.php');
-            ?>
+            <?php include('imageGallery.php'); ?>
 
             <div class="row">
                 <div class="col-md">
@@ -31,6 +29,8 @@
                     </div>
                 </div>
             </div>
+
+            <div class="alert alert-success" role="alert" style="display: none;"></div>
 
             <div class="row">
                 <div class="col-md">

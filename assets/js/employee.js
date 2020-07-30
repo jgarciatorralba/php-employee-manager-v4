@@ -20,3 +20,12 @@ function fillForm(employee) {
 $("#avatar-image").click((e) => {
     $("#avatar-gallery").toggle();
 });
+
+$(function () {
+    if ($_GET('success') === 'true') {
+        $('.alert').text(' User updated successfuly.')
+            .fadeIn(800)
+            .delay(4000)
+            .fadeOut(800);
+    }
+});

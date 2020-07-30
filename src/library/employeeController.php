@@ -13,7 +13,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
         else http_response_code(404);
         break;
     case 'POST':
-        if (!postHandler()) http_response_code(500);
+        $data = postHandler();
+        if ($data) echo $data;
+        else http_response_code(500);
         break;
     case 'DELETE':
         if (!deleteHandler()) http_response_code(500);
@@ -32,9 +34,15 @@ function getHandler()
 
 function postHandler()
 {
-    $newEmployee = $_POST;
-    if (!isset($newEmployee)) return false;
-    else return addEmployee($newEmployee);
+    $employee = $_POST;
+    if (!isset($employee)) return false;
+    if (!isset($employee['id'])) {
+        $return = addEmployee($employee);
+    } else {
+        $return = updateEmployee($employee);
+        header('Location: ../employee.php?id=' . $employee['id'] . '&success=true');
+    }
+    return $return;
 }
 
 function deleteHandler()
