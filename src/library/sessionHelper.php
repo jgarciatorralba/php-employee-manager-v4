@@ -3,9 +3,8 @@ include_once('loginManager.php');
 
 session_start();
 
-
 if (!activeSession()) header('Location: ../index.php');
-// else if (sessionTimeout()) logout();
+else if (sessionTimeout()) logout();
 
 function activeSession()
 {
