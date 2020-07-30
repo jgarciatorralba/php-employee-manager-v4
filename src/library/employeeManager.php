@@ -57,7 +57,7 @@ function updateEmployee(array $updateEmployee)
     $employees[$key]->phoneNumber = $updateEmployee['phoneNumber'];
     $employees[$key]->avatar = $updateEmployee['avatar'];
 
-    return writeEmployees($employees);
+    return writeEmployees($employees) ? $employees[$key] : false;
 }
 
 
