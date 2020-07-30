@@ -15,11 +15,11 @@
                 let gallery = JSON.parse(data);
                 console.log(gallery);
                 for (let avatar of gallery) {
-                    $("#avatar-gallery").append(`<li><img src="${avatar.photo}" alt="avatar" class="gallery-image" width="100" height="100"></li>`);
+                    $("#avatar-gallery").append(`<li><img src="${avatar.photo}" alt="avatar" class="gallery-image rounded border" width="100" height="100"></li>`);
                     $(`img[src="${avatar.photo}"]`).click(function(event) {
-                        //update the src of the avatar foto
-                        // $(event.target).toggleClass("selected-image");
-                        // $("#avatar-Photo").val(avatar.photo);
+                        const image = $(event.target);
+                        const url = image.attr('src');
+                        $('#avatar-image').attr('src', url);
                     })
                 }
             }
