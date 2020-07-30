@@ -16,3 +16,12 @@ function fillForm(employee) {
         $(`[name=${key}]`).val(value);
     }
 }
+
+$(function () {
+    if ($_GET('success') === 'true') {
+        $('.alert').text(' User updated successfuly.')
+            .fadeIn(800)
+            .delay(4000)
+            .fadeOut(800);
+    }
+});
