@@ -35,14 +35,11 @@ function getHandler()
 function postHandler()
 {
     $employee = $_POST;
-    if (!isset($employee)) return false;
-    if (!isset($employee['id'])) {
-        $return = addEmployee($employee);
-    } else {
-        $return = updateEmployee($employee);
-        header('Location: ../employee.php?id=' . $employee['id'] . '&success=true');
-    }
-    return $return;
+    if (count($employee) === 0) return false;
+    $result = isset($employee['id']) && is_numeric($employee['id']) ? updateEmployee($employee) : addEmployee($employee);
+    // propiety redirect is set if post request is from employee.php
+    if (isset($employee['redirect'])) header('Location: ../employee.php?id=' . $employee['id'] . '&success=true');
+    return $result ? json_encode($result) : false;
 }
 
 function deleteHandler()

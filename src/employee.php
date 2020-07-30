@@ -16,6 +16,7 @@
 
     <form action="library/employeeController.php" method="post">
         <input type="text" name="id" class="d-none">
+        <input type="text" name="redirect" class="d-none" value="true">
         <input type="text" name="avatar" id="avatarInput" class="d-none">
         <div class="container-sm border p-4 mt-5 employee-container">
 
