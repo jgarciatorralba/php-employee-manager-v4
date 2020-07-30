@@ -106,15 +106,15 @@
     {
         "id": 9,
         "name": "dqwqwdqwwd",
-        "lastName": null,
+        "lastName": "",
         "email": "",
         "gender": null,
-        "age": null,
+        "age": "",
         "streetAddress": "",
         "city": "",
         "state": "",
         "postalCode": "",
         "phoneNumber": "",
-        "avatar": null
+        "avatar": ""
     }
 ]

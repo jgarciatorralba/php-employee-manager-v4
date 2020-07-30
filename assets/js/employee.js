@@ -1,5 +1,3 @@
-const log = console.log;
-
 $.ajax({
     url: 'library/employeeController.php',
     method: 'GET',
@@ -15,7 +13,7 @@ function fillForm(employee) {
     for (const [key, value] of Object.entries(employee)) {
         $(`[name=${key}]`).val(value);
     }
-    if (employee.hasOwnProperty('avatar') && employee.avatar !== '') {
+    if (employee.hasOwnProperty('avatar') && employee.avatar) {
         $('#avatar-image').attr('src', employee.avatar);
     }
 }
@@ -24,11 +22,10 @@ $("#avatar-image").click((e) => {
     $("#avatar-gallery").toggle();
 });
 
-$(function () {
-    if ($_GET('success') === 'true') {
-        $('.alert').text(' User updated successfuly.')
-            .fadeIn(800)
-            .delay(4000)
-            .fadeOut(800);
-    }
-});
+
+if ($_GET('success') === 'true') {
+    $('.alert').text(' User updated successfuly.')
+        .fadeIn(800)
+        .delay(4000)
+        .fadeOut(800);
+}
