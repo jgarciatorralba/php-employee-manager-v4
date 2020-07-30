@@ -6,8 +6,10 @@ function addEmployee(array $newEmployee)
 {
     $employees = readEmployees();
 
+    $newId = getNextIdentifier($employees);
+
     $employee = [
-        'id' => getNextIdentifier($employees),
+        'id' => $newId,
         'name' => $newEmployee['name'],
         'lastName' => $newEmployee['lastName'],
         'email' => $newEmployee['email'],
@@ -21,7 +23,7 @@ function addEmployee(array $newEmployee)
     ];
 
     array_push($employees, $employee);
-    return writeEmployees($employees);
+    return writeEmployees($employees) ? $newId : false;
 }
 
 

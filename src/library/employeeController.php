@@ -13,7 +13,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
         else http_response_code(404);
         break;
     case 'POST':
-        if (!postHandler()) http_response_code(500);
+        $data = postHandler();
+        if ($data) echo $data;
+        else http_response_code(500);
         break;
     case 'DELETE':
         if (!deleteHandler()) http_response_code(500);
@@ -38,7 +40,7 @@ function postHandler()
         $return = addEmployee($employee);
     } else {
         $return = updateEmployee($employee);
-        header('Location: ../employee.php?id=' . $employee['id']);
+        header('Location: ../employee.php?id=' . $employee['id'] . '&success=true');
     }
     return $return;
 }
