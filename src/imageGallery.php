@@ -1,7 +1,3 @@
-<?php
-// include_once('library/sessionHelper.php');
-?>
-
 <div>
 
     <ul id="avatar-gallery" class="avatar-gallery">
@@ -19,11 +15,11 @@
                 let gallery = JSON.parse(data);
                 console.log(gallery);
                 for (let avatar of gallery) {
-                    $("#avatar-gallery").append(`<li><img src="${avatar.photo}" alt="avatar" class="avatar-image" width="100" height="100"></li>`);
+                    $("#avatar-gallery").append(`<li><img src="${avatar.photo}" alt="avatar" class="gallery-image" width="100" height="100"></li>`);
                     $(`img[src="${avatar.photo}"]`).click(function(event) {
-                        console.log('clicked');
-                        $(event.target).toggleClass("selected-image");
-                        $("#avatar-Photo").val(avatar.photo);
+                        //update the src of the avatar foto
+                        // $(event.target).toggleClass("selected-image");
+                        // $("#avatar-Photo").val(avatar.photo);
                     })
                 }
             }

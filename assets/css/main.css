@@ -13,3 +13,9 @@
     display: inline;
     margin-right: 10px;
 }
+.avatar-image{
+    background-image: url("../img/no-foto.jpg");
+    width: 125px;
+    height: 125px;
+    background-size: cover;
+}

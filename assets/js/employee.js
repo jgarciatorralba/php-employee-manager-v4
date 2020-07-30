@@ -16,3 +16,7 @@ function fillForm(employee) {
         $(`[name=${key}]`).val(value);
     }
 }
+
+$("#avatar-image").click((e) => {
+    $("#avatar-gallery").toggle();
+});
