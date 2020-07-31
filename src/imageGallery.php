@@ -1,6 +1,6 @@
 <div>
 
-    <ul id="avatar-gallery" class="avatar-gallery" style="display: none;">
+    <ul id="avatar-gallery" class="avatar-gallery">
 
     </ul>
 
