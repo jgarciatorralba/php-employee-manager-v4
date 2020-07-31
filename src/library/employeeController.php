@@ -43,5 +43,6 @@ function deleteHandler()
 {
     parse_str(file_get_contents("php://input"), $data);
     if (!isset($data['id'])) return false;
+    else header("Location: ./index.php");
     return deleteEmployee($data['id']);
 }
