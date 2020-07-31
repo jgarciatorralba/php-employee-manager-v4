@@ -123,6 +123,20 @@
         "state": "NY",
         "postalCode": "423422",
         "phoneNumber": "1242343245",
-        "avatar": "https:\/\/randomuser.me\/api\/portraits\/women\/56.jpg"
+        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/T5rm0m7W.jpg"
+    },
+    {
+        "id": 11,
+        "name": "jaime",
+        "email": "",
+        "streetAddress": "",
+        "city": "",
+        "state": "",
+        "postalCode": "",
+        "phoneNumber": "",
+        "lastName": "",
+        "gender": "Choose...",
+        "age": "",
+        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/NpuMjRxv.jpg"
     }
 ]

@@ -18,6 +18,9 @@ function fillForm(employee) {
     }
 }
 
+//By default the gallery must remain hidden 
+$("#avatar-gallery").hide();
+//We will only show it when we click on the avatar image
 $("#avatar-image").click((e) => {
     $("#avatar-gallery").toggle();
 });
