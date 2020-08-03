@@ -10,24 +10,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" id="dashboard" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link" id="dashboard" href="index.php?dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" id="employee" href="employee.php">Employee</a>
+                    <a class="nav-link" id="employee" href="index.php?employee">Employee</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <a class="text-dark m-3" href="library/loginController.php?logout">Log out</a>
+    <a class="text-dark m-3" href="index.php?logout">Log out</a>
 </header>
 
 <script>
     const url = window.location.href;
-    if (url.includes('dashboard.php')) {
+    if (url.includes('?dashboard')) {
         document.getElementById('dashboard').classList.add('font-weight-bold');
     }
 
-    if (url.includes('employee.php')) {
+    if (url.includes('?employee')) {
         document.getElementById('employee').classList.add('font-weight-bold');
     }
 </script>
