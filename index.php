@@ -1,10 +1,7 @@
 <?php
-
 require_once "config.php";
-
-require_once LIB."sessionHelper.php";
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +19,25 @@ require_once LIB."sessionHelper.php";
 <body class="d-flex flex-column min-vh-100">
 
     <?php
-        if(isset($_GET["logout"])) {
-            include_once CONTROLLER."login.php";
-        }
+        if (!isset($_GET["controller"])){
 
-        if (activeSession() && isset($_GET["dashboard"])) include VIEW."dashboard.php";
-        else if (activeSession() && isset($_GET["employee"])) include VIEW."employee.php";
-        else include CONTROLLER."login.php";
+            session_start();
+            if (isset($_SESSION['username'])) {
+                include(VIEW . 'dashboard.php');
+            } else {
+                include(VIEW . 'login.php');
+            }
+
+        } else {
+            
+            $controller = $_GET["controller"];
+            if (file_exists(CONTROLLER . $controller)) {
+                include(CONTROLLER . $controller);
+            } else {
+                include(VIEW . "error.php");
+            }
+
+        }
     ?>
 
     <?php include('assets/footer.html') ?>

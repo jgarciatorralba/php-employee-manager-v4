@@ -2,7 +2,7 @@
 session_start();
 
 if(activeSession())
-    if (sessionTimeout()) logout();
+    if (sessionTimeout()) logOut();
 
 function activeSession()
 {
