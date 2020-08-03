@@ -1,7 +1,7 @@
 <header class="d-flex flex-row align-items-center bg-light border-bottom">
     <nav class="navbar navbar-expand-sm mr-auto navbar-light">
         <a class="navbar-brand">
-            <img src="../assets/img/assembler-school.jpg" class="rounded" width="30" height="30" alt="assembler school logo">
+            <img src="assets/img/assembler-school.jpg" class="rounded" width="30" height="30" alt="assembler school logo">
         </a>
         <a class="navbar-brand">Assembler School</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,24 +10,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" id="dashboard" href="dashboard.php">Dashboard</a>
+                    <a class="nav-link" id="dashboard" href="index.php?dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" id="employee" href="employee.php">Employee</a>
+                    <a class="nav-link" id="employee" href="index.php?employee">Employee</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <a class="text-dark m-3" href="library/loginController.php?logout">Log out</a>
+    <a class="text-dark m-3" href="index.php?logout">Log out</a>
 </header>
 
 <script>
     const url = window.location.href;
-    if (url.includes('dashboard.php')) {
+    if (url.includes('?dashboard')) {
         document.getElementById('dashboard').classList.add('font-weight-bold');
     }
 
-    if (url.includes('employee.php')) {
+    if (url.includes('?employee')) {
         document.getElementById('employee').classList.add('font-weight-bold');
     }
 </script>

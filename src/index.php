@@ -1,5 +1,5 @@
 <?php
 
-include_once('library/sessionHelper.php');
+include_once(LIB."sessionHelper.php");
 
-header('Location: dashboard.php');
+header('Location: ../index.php');

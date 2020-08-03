@@ -1,8 +1,6 @@
 <?php
-
-include_once('sessionHelper.php');
-
-if (isset($_GET['logout'])) logOut();
+require_once MODEL."login.php";
+require_once VIEW."login.php";
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
@@ -14,10 +12,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['username'] = $username;
         $_SESSION['lifeTime'] = 600;
         $_SESSION['time'] = time();
-        header('Location: ../dashboard.php');
+        header('Location: index.php?dashboard');
     } else {
         session_destroy();
-        header('Location: ../../index.php?error');
+        header('Location: index.php?error');
     }
     exit();
 }
