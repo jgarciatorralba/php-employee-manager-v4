@@ -22,9 +22,8 @@ require_once LIB."sessionHelper.php";
 <body class="d-flex flex-column min-vh-100">
 
     <?php
-        if(isset($_GET["logout"])) { 
+        if(isset($_GET["logout"])) {
             include_once CONTROLLER."login.php";
-            logOut();
         }
 
         if (activeSession() && isset($_GET["dashboard"])) include VIEW."dashboard.php";
