@@ -2,8 +2,6 @@
 
 require_once MODEL."login.php";
 
-include_once(LIB.'sessionHelper.php');
-
 $action;
 
 if (isset($_REQUEST["action"])) {
@@ -36,7 +34,6 @@ function validateAccess()
         } else {
             session_destroy();
             header('Location: index.php?error');
-            // include(VIEW . 'login.php?error');
         }
         exit();
     } else {

@@ -1,5 +1,6 @@
 <?php
 require_once "config.php";
+require_once LIB."sessionHelper.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +21,7 @@ require_once "config.php";
 
     <?php
         if (!isset($_GET["controller"])){
-
-            session_start();
-            if (isset($_SESSION['username'])) {
+            if (activeSession()) {
                 include(VIEW . 'dashboard.php');
             } else {
                 include(VIEW . 'login.php');

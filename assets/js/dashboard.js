@@ -17,11 +17,11 @@ $('#jsGrid').jsGrid({
 
     controller: {
         loadData: function () {
-            return $.ajax('controller/employee.php').done(data => console.log(data));
+            return $.ajax('index.php?controller=employee.php&action=getListAJAX').always(data => console.log(data));
         },
         insertItem: function (item) {
             return $.ajax({
-                url: 'controller/employee.php',
+                url: 'index.php?controller=employee.php&ction=createEmployeeAJAX',
                 method: 'POST',
                 data: item
             }).done(response => {
@@ -38,7 +38,7 @@ $('#jsGrid').jsGrid({
     },
 
     rowClick: function (args) {
-        location.href = `index.php?employee&id=${args.item.id}`;
+        location.href = `index.php?controller=employee.php&action=getEmployeeAJAX&id=${args.item.id}`;
     },
 
     fields: [

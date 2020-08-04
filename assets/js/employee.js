@@ -1,5 +1,5 @@
 $.ajax({
-    url: 'library/employeeController.php',
+    url: 'index.php?controller=employee.php?action=getEmployeeAJAX',
     method: 'GET',
     data: { employee: $_GET('id') }
 }).done(response => fillForm(response));
