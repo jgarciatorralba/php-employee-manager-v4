@@ -1,28 +1,54 @@
 <?php
 
-require_once "../config.php";
-// require_once BASE_PATH . "/config.php";
+// require_once "../config.php";
+require_once BASE_PATH . "/config.php";
 require_once MODEL."employee.php";
 
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 
-switch ($_SERVER['REQUEST_METHOD']) {
-    case 'GET':
-        $data = getHandler();
-        if ($data) echo json_encode($data);
-        else http_response_code(404);
-        break;
-    case 'POST':
-        $data = postHandler();
-        if ($data) echo json_encode($data);
-        else http_response_code(500);
-        break;
-    case 'DELETE':
-        if (!deleteHandler()) http_response_code(500);
-        break;
-    default:
-        http_response_code(400);
-        break;
+
+$action;
+
+if (isset($_REQUEST["action"])) {
+    $action = $_REQUEST["action"];
+} else {
+    $action = "showEmployees";
+}
+
+if (function_exists($action)) {
+    call_user_func($action, $_REQUEST);
+} else {
+    // goToError();
+}
+
+
+
+
+
+// switch ($_SERVER['REQUEST_METHOD']) {
+//     case 'GET':
+//         $data = getHandler();
+//         if ($data) echo json_encode($data);
+//         else http_response_code(404);
+//         break;
+//     case 'POST':
+//         $data = postHandler();
+//         if ($data) echo json_encode($data);
+//         else http_response_code(500);
+//         break;
+//     case 'DELETE':
+//         if (!deleteHandler()) http_response_code(500);
+//         break;
+//     default:
+//         http_response_code(400);
+//         break;
+// }
+
+
+function showEmployees(){
+    $employees = readEmployees();
+    echo json_encode($employees);
+    // echo $employees;
 }
 
 function getHandler()
