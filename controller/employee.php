@@ -1,6 +1,7 @@
 <?php
 
 require_once "../config.php";
+// require_once BASE_PATH . "/config.php";
 require_once MODEL."employee.php";
 
 header('Content-Type: application/json');
