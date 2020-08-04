@@ -1,8 +1,8 @@
 $.ajax({
-    url: 'index.php?controller=employee.php?action=getEmployeeAJAX',
+    url: 'index.php?controller=employee&action=getEmployeeAJAX',
     method: 'GET',
-    data: { employee: $_GET('id') }
-}).done(response => fillForm(response));
+    data: { empID: $_GET('id') }
+}).done(response => fillForm(JSON.parse(response)));
 
 function $_GET(key) {
     const url = new URL(window.location.href);

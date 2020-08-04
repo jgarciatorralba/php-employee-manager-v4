@@ -12,8 +12,8 @@ if (!isset($_GET["controller"])){
 } else {
     
     $controller = $_GET["controller"];
-    if (file_exists(CONTROLLER . $controller)) {
-        include(CONTROLLER . $controller);
+    if (file_exists(CONTROLLER . $controller . ".php")) {
+        include(CONTROLLER . $controller . ".php");
     } else {
         include(VIEW . "error.php");
     }

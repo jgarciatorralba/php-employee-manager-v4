@@ -1,8 +1,10 @@
 [
     {
         "id": "1",
+        "redirect": "true",
+        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/5N18dOsU.jpg",
         "name": "Rack",
-        "lastName": "Lei",
+        "lastName": "Leilax",
         "email": "jackon@network.com",
         "gender": "man",
         "city": "San Jone",
@@ -10,8 +12,7 @@
         "state": "CA",
         "age": "24",
         "postalCode": "394221",
-        "phoneNumber": "7383627627",
-        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/5N18dOsU.jpg"
+        "phoneNumber": "7383627627"
     },
     {
         "id": "2",
@@ -30,8 +31,10 @@
     },
     {
         "id": "3",
-        "name": "Leila",
-        "lastName": "Mills",
+        "redirect": "true",
+        "avatar": "https:\/\/i.imgur.com\/kcPMLNS.jpg",
+        "name": "Sheila",
+        "lastName": "Millshake",
         "email": "mills@leila.com",
         "gender": "woman",
         "city": "San Diego",
@@ -39,22 +42,22 @@
         "state": "CA",
         "age": "29",
         "postalCode": "098765",
-        "phoneNumber": "9983632461",
-        "avatar": "https:\/\/i.imgur.com\/kcPMLNS.jpg"
+        "phoneNumber": "9983632461"
     },
     {
-        "id": 4,
-        "name": "Richard",
+        "id": "4",
+        "redirect": "true",
+        "avatar": "https:\/\/images.generated.photos\/AxsZ-fY9aewY9U0TjnqC64gnbPZ7hLReHgVonw2PNR8\/rs:fit:512:512\/Z3M6Ly9nZW5lcmF0\/ZWQtcGhvdG9zL3Yy\/XzA2NzUxMTkuanBn.jpg",
+        "name": "Ricarda",
         "lastName": "Desmond",
         "email": "dismond@foo.com",
-        "gender": "man",
-        "age": "30",
-        "streetAddress": "90",
+        "gender": "woman",
         "city": "Salt lake city",
+        "streetAddress": "90",
         "state": "UT",
+        "age": "30",
         "postalCode": "457320",
-        "phoneNumber": "90876987654",
-        "avatar": "https:\/\/i.imgur.com\/BVpUhtw.jpg"
+        "phoneNumber": "90876987654"
     },
     {
         "id": 5,
@@ -112,31 +115,18 @@
         "phoneNumber": "91232876454"
     },
     {
-        "id": 10,
+        "id": "10",
+        "redirect": "true",
+        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/T5rm0m7W.jpg",
         "name": "Noelia",
         "lastName": "Smith",
         "email": "hola@caracola.xd",
         "gender": "woman",
-        "age": "25",
-        "streetAddress": "42",
         "city": "Barcelona",
+        "streetAddress": "42",
         "state": "NY",
+        "age": "25",
         "postalCode": "423422",
-        "phoneNumber": "1242343245",
-        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/T5rm0m7W.jpg"
-    },
-    {
-        "id": 11,
-        "name": "jaime",
-        "email": "",
-        "streetAddress": "",
-        "city": "",
-        "state": "",
-        "postalCode": "",
-        "phoneNumber": "",
-        "lastName": "",
-        "gender": "Choose...",
-        "age": "",
-        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/NpuMjRxv.jpg"
+        "phoneNumber": "1242343245"
     }
 ]

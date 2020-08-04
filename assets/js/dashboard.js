@@ -20,7 +20,7 @@ $.get("resources/employees.json", function (data) {
 
         controller: {
             // loadData: function () {
-            //     return $.ajax('index.php?controller=employee.php').done(
+            //     return $.ajax('index.php?controller=employee').done(
             //         data => {
             //             JSON.parse(data);
             //             console.log(data);
@@ -29,7 +29,7 @@ $.get("resources/employees.json", function (data) {
             // },
             insertItem: function (item) {
                 return $.ajax({
-                    url: 'controller/employee.php',
+                    url: 'index.php?controller=employee&action=createEmployeeAJAX',
                     method: 'POST',
                     data: item
                 }).done(response => {
@@ -38,7 +38,7 @@ $.get("resources/employees.json", function (data) {
             },
             deleteItem: function (item) {
                 return $.ajax({
-                    url: 'controller/employee.php',
+                    url: 'index.php?controller=employee&action=deleteEmployeeAJAX',
                     method: 'DELETE',
                     data: {
                         id: item.id
@@ -48,7 +48,7 @@ $.get("resources/employees.json", function (data) {
         },
 
         rowClick: function (args) {
-            location.href = `index.php?controller=employee.php&action=getEmployee&id=${args.item.id}`;
+            location.href = `index.php?controller=employee&action=showEmployeeForm&id=${args.item.id}`;
         },
 
         fields: [{

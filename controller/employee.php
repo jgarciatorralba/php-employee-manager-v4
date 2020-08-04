@@ -1,11 +1,7 @@
 <?php
 
-// require_once "../config.php";
 require_once BASE_PATH . "/config.php";
 require_once MODEL."employee.php";
-
-// header('Content-Type: application/json');
-
 
 $action;
 
@@ -17,44 +13,21 @@ if (isset($_REQUEST["action"])) {
 
 if (function_exists($action)) {
     call_user_func($action, $_REQUEST);
-} else {
-    // goToError();
-}
-
-
-
-
-
-// switch ($_SERVER['REQUEST_METHOD']) {
-//     case 'GET':
-//         $data = getHandler();
-//         if ($data) echo json_encode($data);
-//         else http_response_code(404);
-//         break;
-//     case 'POST':
-//         $data = postHandler();
-//         if ($data) echo json_encode($data);
-//         else http_response_code(500);
-//         break;
-//     case 'DELETE':
-//         if (!deleteHandler()) http_response_code(500);
-//         break;
-//     default:
-//         http_response_code(400);
-//         break;
-// }
-
+} 
 
 function showEmployees(){
     $employees = readEmployees();
     echo json_encode($employees);
-    // echo $employees;
 }
 
 function getEmployeeAJAX()
 {
+    $employee = getEmployee($_GET["empID"]);
+    echo json_encode($employee);
+}
+
+function showEmployeeForm() {
     include(VIEW."employee.php");
-    return getEmployee($_GET['employee']);
 }
 
 function createEmployeeAJAX() {
@@ -63,26 +36,19 @@ function createEmployeeAJAX() {
     return addEmployee($employee);
 }
 
-function updateEmployeeAJAX() {
-    $employee = $_POST;
-    if (count($employee) === 0) return false;
-    header('Location:'. BASE_PATH .'index.php?controller=employee.php&id=' . $employee['id'] . '&success=true');
-    return updateEmployee($employee);
-}
-
-function postHandler()
+function submitEmployee()
 {
     $employee = $_POST;
-    if (count($employee) === 0) return false;
+    if (count($employee) === 0) return false;    
+    isset($employee['id']) && is_numeric($employee['id']) ? updateEmployee($employee) : addEmployee($employee);
+
     // propiety redirect is set if post request is from employee.php
-    if (isset($employee['redirect'])) 
-    return isset($employee['id']) && is_numeric($employee['id']) ? updateEmployee($employee) : addEmployee($employee);
+    if (isset($employee['redirect'])) header('Location: index.php?controller=employee&action=showEmployeeForm&id='.$employee['id'].'&success=true');
 }
 
-function deleteHandler()
+function deleteEmployeeAJAX()
 {
     parse_str(file_get_contents("php://input"), $data);
     if (!isset($data['id'])) return false;
-    else header('Location:'. BASE_PATH .'index.php?dashboard');
     return deleteEmployee($data['id']);
 }

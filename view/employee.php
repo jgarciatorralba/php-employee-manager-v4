@@ -1,19 +1,19 @@
 <?php include "assets/head.html"; ?>
 <body class="d-flex flex-column min-vh-100">
 <?php include "assets/header.html"; ?>
-    <form action="library/employeeController.php" method="post">
+    <form action="index.php?controller=employee&action=submitEmployee" method="post">
         <input type="text" name="id" class="d-none">
         <input type="text" name="redirect" class="d-none" value="true">
         <input type="text" name="avatar" id="avatarInput" class="d-none">
         <div class="container-sm border p-4 mt-5 employee-container">
 
-            <?php include('imageGallery.php'); ?>
+            <?php include(LIB.'imageGallery.php'); ?>
 
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
                         <div class="avatar-image mx-auto" cla>
-                            <img src="../assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded">
+                            <img src="assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded">
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
-            <a href="dashboard.php" class="btn btn-secondary mt-2">Return</a>
+            <a href="index.php" class="btn btn-secondary mt-2">Return</a>
         </div>
     </form>
 
@@ -94,4 +94,5 @@
     include "assets/footer.html"; 
     include "assets/foot.html";
 ?>
+<script src="assets/js/employee.js"></script>
 </body>
