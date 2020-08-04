@@ -9,18 +9,18 @@ $action;
 if (isset($_REQUEST["action"])) {
     $action = $_REQUEST["action"];
 } else {
-    $action = "goToDashboard";
+    $action = "goToLogin";
 }
 
 if (function_exists($action)) {
     call_user_func($action, $_REQUEST);
 } else {
-    goToError();
+    // goToError();
 }
 
 /* ~~~ CONTROLLER FUNCTIONS ~~~ */
 
-function goToDashboard()
+function validateAccess()
 {
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
@@ -44,9 +44,27 @@ function goToDashboard()
     }
 }
 
+function goToDashboard()
+{
+    if (activeSession()){
+        include(VIEW."dashboard.php");
+    } else {
+        header('Location: index.php');
+    }
+}
+
+function goToEmployee()
+{
+    if (activeSession()){
+        include(VIEW."employee.php");
+    } else {
+        header('Location: index.php');
+    }
+}
+
 function goToLogin()
 {
-    include(BASE_PATH . '/index.php');
+    header('Location: index.php');
 }
 
 function goToError()
