@@ -1,5 +1,6 @@
-<?php include('assets/header.html'); ?>
-
+<?php include "assets/head.html"; ?>
+<body class="d-flex flex-column min-vh-100">
+<?php include "assets/header.html"; ?>
     <form action="library/employeeController.php" method="post">
         <input type="text" name="id" class="d-none">
         <input type="text" name="redirect" class="d-none" value="true">
@@ -88,3 +89,9 @@
             <a href="dashboard.php" class="btn btn-secondary mt-2">Return</a>
         </div>
     </form>
+
+<?php 
+    include "assets/footer.html"; 
+    include "assets/foot.html";
+?>
+</body>

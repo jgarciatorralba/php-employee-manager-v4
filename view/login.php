@@ -1,4 +1,6 @@
-<?php include('assets/headerLogin.html') ?>
+<?php include "assets/head.html"; ?>
+<body class="d-flex flex-column min-vh-100">
+<?php include "assets/header.html"; ?>
 
 <div class="container-sm m-auto">
     <form class="form-signin text-center" action="index.php?controller=login.php&action=validateAccess" method="post">
@@ -13,3 +15,9 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </div>
+
+<?php 
+    include "assets/footer.html"; 
+    include "assets/foot.html";
+?>
+</body>

@@ -1,3 +1,6 @@
+<?php include "assets/head.html"; ?>
+<body class="d-flex flex-column min-vh-100">
+<?php include "assets/header.html"; ?>
 <div class="container">
   <div class="row justify-content-center align-items-center form-cont">
     <div class="text-center p-5 bg-danger border border-dark rounded-lg">
@@ -7,3 +10,9 @@
     </div>
   </div>
 </div>
+
+<?php 
+    include "assets/footer.html"; 
+    include "assets/foot.html";
+?>
+</body>
