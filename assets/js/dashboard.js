@@ -16,20 +16,6 @@ $.get("resources/employees.json", function (data) {
         pageSize: 10,
         pageButtonCount: 5,
 
-<<<<<<< HEAD
-    controller: {
-        loadData: function () {
-            return $.ajax('index.php?controller=employee.php&action=getListAJAX').always(data => console.log(data));
-        },
-        insertItem: function (item) {
-            return $.ajax({
-                url: 'index.php?controller=employee.php&ction=createEmployeeAJAX',
-                method: 'POST',
-                data: item
-            }).done(response => {
-                return response;
-            }).fail(console.log);
-=======
         align: 'center',
 
         controller: {
@@ -59,18 +45,11 @@ $.get("resources/employees.json", function (data) {
                     }
                 }).fail(console.log);
             }
->>>>>>> 6e053db12b3ed5046f9185b8938d77344a9322fd
         },
 
-<<<<<<< HEAD
-    rowClick: function (args) {
-        location.href = `index.php?controller=employee.php&action=getEmployeeAJAX&id=${args.item.id}`;
-    },
-=======
         rowClick: function (args) {
             location.href = `index.php?controller=employee.php&action=getEmployee&id=${args.item.id}`;
         },
->>>>>>> 6e053db12b3ed5046f9185b8938d77344a9322fd
 
         fields: [{
                 name: 'id',
