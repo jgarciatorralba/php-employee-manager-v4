@@ -1,6 +1,6 @@
 <?php include "assets/head.html"; ?>
 <body class="d-flex flex-column min-vh-100">
-<?php include "assets/header.html"; ?>
+<?php include "assets/headerLogin.html"; ?>
 
 <div class="container-sm m-auto">
     <form class="form-signin text-center" action="index.php?controller=login&action=validateAccess" method="post">
@@ -17,7 +17,7 @@
 </div>
 
 <?php 
-    include "assets/footer.html"; 
+    include "assets/footer.html";
     include "assets/foot.html";
 ?>
 </body>
