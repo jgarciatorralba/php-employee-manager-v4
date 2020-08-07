@@ -4,8 +4,25 @@ function addEmployee(array $newEmployee)
 {
     $employees = readEmployees();
     $newEmployee['id'] = getNextIdentifier($employees);
+
+    include_once(LIB."database.php");
+
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    if ($conn) {
+        $stmt = $conn->prepare("INSERT INTO employees (id, redirect, name, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) values (:id, 'true', :name, :email, 'man', :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)");
+        $stmt->execute($newEmployee);
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+        return $result;
+        $conn = null;
+    }
+
+    /*
     array_push($employees, $newEmployee);
     return writeEmployees($employees) ? $newEmployee : false;
+    */
 }
 
 
