@@ -7,24 +7,43 @@ function addEmployee(array $newEmployee)
     $employees = readEmployees();
     $newEmployee['id'] = getNextIdentifier($employees);
 
-    include_once(LIB."database.php");
-
     $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
     if ($conn) {
-        $stmt = $conn->prepare("INSERT INTO employees (id, redirect, name, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) values (:id, 'true', :name, :email, 'man', :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)");
-        $stmt->execute($newEmployee);
+        $id = $newEmployee['id'];
+        if (isset($newEmployee['avatar'])){
+            $avatar = $newEmployee['avatar'];
+        } else {
+            $avatar = "";
+        }
+        $name = $newEmployee['name'];
+        if (isset($newEmployee['lastName'])){
+            $lastName = $newEmployee['lastName'];
+        } else {
+            $lastName = "";
+        }
+        $email = $newEmployee['email'];
+        if (isset($newEmployee['gender'])){
+            $gender = $newEmployee['gender'];
+        } else {
+            $gender = "";
+        }
+        $city = $newEmployee['city'];
+        $streetAddress = $newEmployee['streetAddress'];
+        $state = $newEmployee['state'];
+        $parsedAge = intval($newEmployee['age']);
+        $postalCode = $newEmployee['postalCode'];
+        $phoneNumber = $newEmployee['phoneNumber'];
 
-        // set the resulting array to associative
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $stmt->fetchAll();
-        return $result;
+        $sql =
+            "INSERT INTO 
+                employees (id, avatar, [name], lastName, email, gender, city, streetAddress, [state], age, postalCode, phoneNumber) 
+                values ($id, $avatar, $name, $lastName, $email, $gender, $city, $streetAddress, $state, $parsedAge, $postalCode, $phoneNumber)"
+        ;
+        $conn->exec($sql);
+
+        // close connection
         $conn = null;
     }
-
-    /*
-    array_push($employees, $newEmployee);
-    return writeEmployees($employees) ? $newEmployee : false;
-    */
 }
 
 
@@ -33,7 +52,7 @@ function deleteEmployee(string $id)
     $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
     if ($conn) {
         $parsedId = intval($id);
-        $stmt = $conn->prepare("DELETE FROM employees WHERE id = $parsedId");
+        $stmt = $conn->prepare("DELETE FROM employees WHERE id = $parsedId;");
         $stmt->execute();
 
         // close connection
@@ -44,11 +63,51 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    $employees = readEmployees();
-    $key = array_search($updateEmployee['id'], array_column($employees, 'id'));
-    if (!is_numeric($key)) return false;
-    $employees[$key] = $updateEmployee;
-    return writeEmployees($employees) ? $employees[$key] : false;
+    // $employees = readEmployees();
+    // $key = array_search($updateEmployee['id'], array_column($employees, 'id'));
+    // if (!is_numeric($key)) return false;
+    // $employees[$key] = $updateEmployee;
+    // return writeEmployees($employees) ? $employees[$key] : false;
+
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    // $conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+    if ($conn) {
+        $parsedId = intval($updateEmployee['id']);
+        $redirect = $updateEmployee['redirect'];
+        $avatar = $updateEmployee['avatar'];
+        $name = $updateEmployee['name'];
+        $lastName = $updateEmployee['lastName'];
+        $email = $updateEmployee['email'];
+        $gender = $updateEmployee['gender'];
+        $city = $updateEmployee['city'];
+        $streetAddress = $updateEmployee['streetAddress'];
+        $state = $updateEmployee['state'];
+        $parsedAge = intval($updateEmployee['age']);
+        $postalCode = $updateEmployee['postalCode'];
+        $phoneNumber = $updateEmployee['phoneNumber'];
+
+        $sql = 
+            "UPDATE employees 
+                SET 
+                    redirect = $redirect, 
+                    -- avatar = $avatar, 
+                    name = $name, 
+                    -- lastName = $lastName, 
+                    -- email = $email, 
+                    -- gender = $gender, 
+                    -- city = $city, 
+                    streetAddress = $streetAddress, 
+                    -- state = $state, 
+                    age = $parsedAge, 
+                    postalCode = $postalCode, 
+                    phoneNumber = $phoneNumber 
+                WHERE id = $parsedId;"
+        ;
+        $conn->exec($sql);
+
+        // close connection
+        $conn = null;
+    }
 }
 
 
@@ -57,7 +116,7 @@ function getEmployee(string $id)
     $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
     if ($conn) {
         $parsedId = intval($id);
-        $stmt = $conn->prepare("SELECT * FROM employees WHERE id = $parsedId");
+        $stmt = $conn->prepare("SELECT * FROM employees WHERE id = $parsedId;");
         $stmt->execute();
 
         // set the resulting array to associative
@@ -88,7 +147,7 @@ function getQueryStringParameters(): array
 
 function getNextIdentifier(array $employeesCollection): int
 {
-    $last_id = (int) end($employeesCollection)->id;
+    $last_id = (int) end($employeesCollection)["id"];
     return $last_id + 1;
 }
 
@@ -97,7 +156,7 @@ function readEmployees()
 {
     $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
     if ($conn) {
-        $stmt = $conn->prepare("SELECT * FROM employees");
+        $stmt = $conn->prepare("SELECT * FROM employees;");
         $stmt->execute();
 
         // set the resulting array to associative
