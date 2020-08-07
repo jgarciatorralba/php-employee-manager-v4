@@ -1,0 +1,73 @@
+<mxfile host="fc776ec3-3d38-4928-9ea1-a780912d206d" modified="2020-08-07T12:03:31.125Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="F2TjeUhorJGZ1xfyBNWm" version="13.1.3">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="1157" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#F0F0F0;shadow=0;comic=0;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="180" width="210" height="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;font style=&quot;font-size: 14px&quot;&gt;id INT (11) [P. KEY]&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A4A27;strokeColor=none;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="210" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;font style=&quot;font-size: 14px&quot;&gt;Employees&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=12;fillColor=#404040;strokeColor=#F0F0F0;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="180" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;font style=&quot;font-size: 14px&quot;&gt;redirect VARCHAR (5)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="240" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;span style=&quot;font-size: 14px&quot;&gt;avatar VARCHAR (255)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="270" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;span style=&quot;font-size: 14px&quot;&gt;name VARCHAR (25)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="300" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;span style=&quot;font-size: 14px&quot;&gt;lastName VARCHAR (40)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="330" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;span style=&quot;font-size: 14px&quot;&gt;email VARCHAR (60)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="360" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;span style=&quot;font-size: 14px&quot;&gt;gender VARCHAR (6)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="390" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;span style=&quot;font-size: 14px&quot;&gt;city VARCHAR (40)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="420" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;span style=&quot;font-size: 14px&quot;&gt;streetAddress VARCHAR (40)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="450" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;span style=&quot;font-size: 14px&quot;&gt;state VARCHAR (25)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="480" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;span style=&quot;font-size: 14px&quot;&gt;age INT (3)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="510" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;span style=&quot;font-size: 14px&quot;&gt;postalCode INT (8)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="540" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;span style=&quot;font-size: 14px&quot;&gt;phoneNumber INT (9)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="570" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#F0F0F0;shadow=0;comic=0;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="180" width="210" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;font style=&quot;font-size: 14px&quot;&gt;userId INT (11) [P. KEY]&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A4A27;strokeColor=none;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="210" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;span style=&quot;font-size: 14px&quot;&gt;Users&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=12;fillColor=#404040;strokeColor=#F0F0F0;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="180" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="&lt;font style=&quot;font-size: 14px&quot;&gt;name VARCHAR (30)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="240" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="&lt;font style=&quot;font-size: 14px&quot;&gt;password VARCHAR (100)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="270" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&lt;font style=&quot;font-size: 14px&quot;&gt;email VARCHAR (60)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#ffffff;align=left;spacingLeft=12;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="300" width="210" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
