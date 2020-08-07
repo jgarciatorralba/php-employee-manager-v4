@@ -89,9 +89,9 @@ function updateEmployee(array $updateEmployee)
         $sql = 
             "UPDATE employees 
                 SET 
-                    redirect = $redirect, 
+                    redirect =$redirect, 
                     -- avatar = $avatar, 
-                    name = $name, 
+                    name = '$name', 
                     -- lastName = $lastName, 
                     -- email = $email, 
                     -- gender = $gender, 
