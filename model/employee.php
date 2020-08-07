@@ -1,5 +1,7 @@
 <?php
 
+include_once(LIB."database.php");
+
 function addEmployee(array $newEmployee)
 {
     $employees = readEmployees();
@@ -48,10 +50,19 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-    $employees = readEmployees();
-    $key = array_search($id, array_column($employees, 'id'));
-    if (!is_numeric($key)) return false;
-    return $employees[$key];
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    if ($conn) {
+        $parsedId = intval($id);
+        $stmt = $conn->prepare("SELECT * FROM employees WHERE id = $parsedId");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch();
+        // close connection
+        $conn = null;
+        return $result;
+    }
 }
 
 
@@ -80,11 +91,6 @@ function getNextIdentifier(array $employeesCollection): int
 
 function readEmployees()
 {
-    // $data = file_get_contents(RESOURCES."employees.json");
-    // return json_decode($data);
-
-    include_once(LIB."database.php");
-
     $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
     if ($conn) {
         $stmt = $conn->prepare("SELECT * FROM employees");
@@ -93,8 +99,9 @@ function readEmployees()
         // set the resulting array to associative
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
-        return $result;
+        // close connection
         $conn = null;
+        return $result;
     }
 }
 
