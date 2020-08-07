@@ -63,8 +63,22 @@ function getNextIdentifier(array $employeesCollection): int
 
 function readEmployees()
 {
-    $data = file_get_contents(RESOURCES."employees.json");
-    return json_decode($data);
+    // $data = file_get_contents(RESOURCES."employees.json");
+    // return json_decode($data);
+
+    include_once(LIB."database.php");
+
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    if ($conn) {
+        $stmt = $conn->prepare("SELECT * FROM employees");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+        return $result;
+        $conn = null;
+    }
 }
 
 
