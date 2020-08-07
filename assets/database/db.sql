@@ -1,5 +1,5 @@
-CREATE DATABASE employeeManagment;
-USE employeeManagment;
+CREATE DATABASE employeeManagement;
+USE employeeManagement;
 
 CREATE TABLE employees (
     id INT(11),
