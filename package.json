@@ -19,5 +19,8 @@
     "type": "git",
     "url": "https://code.assemblerschool.com/eloy-rodriguez/Employee-management-V2.git"
   },
-  "keywords": []
+  "keywords": [],
+  "directories": {
+    "lib": "lib"
+  }
 }
