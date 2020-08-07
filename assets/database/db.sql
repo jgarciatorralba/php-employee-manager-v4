@@ -6,7 +6,7 @@ CREATE TABLE employees (
     redirect VARCHAR(5),
     avatar VARCHAR(255),
     name VARCHAR(25),
-    lastname VARCHAR(40),
+    lastName VARCHAR(40),
     email VARCHAR(60),
     gender VARCHAR(6),
     city VARCHAR(40),
