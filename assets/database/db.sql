@@ -27,7 +27,7 @@ CREATE TABLE users (
 );
 
 INSERT INTO employees
-    (id, redirect, avatar, name, lastname, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) values
+    (id, redirect, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) values
     (1, 'true', 'https:\/\/uifaces.co\/our-content\/donated\/5N18dOsU.jpg', 'Rack', 'Leilax', 'jackon@network.com', 'man', 'San Jone', '126', 'CA', 24, 394221, 738362764),
     (2, 'true', 'https:\/\/i.imgur.com\/oC8EjRE.jpg', 'Joanna', 'Doe', 'jhondoe@foo.com', 'woman', 'New York', '89', 'WA', 36, 09889, 128364564),
     (3, 'true', 'https:\/\/i.imgur.com\/kcPMLNS.jpg', 'Sheila', 'Millshake', 'mills@leila.com', 'woman', 'San Diego', '55', 'CA', 29, 098765, 998363246),

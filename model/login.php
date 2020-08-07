@@ -1,22 +1,43 @@
 <?php
 
+include_once(LIB."database.php");
+
 function checkCredentials($username, $password)
 {
     $user = getUser($username);
-    return $user ? password_verify($password, $user->password) : false;
+    return password_verify($password, $user["password"]);
 }
 
 function getUser($username)
 {
-    $users = getUsers();
-    $key = array_search($username, array_column($users, 'name'));
-    return is_numeric($key) ? $users[$key] : false;
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    if ($conn) {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE name = '$username';");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch();
+        // close connection
+        $conn = null;
+        return $result;
+    }
 }
 
 function getUsers()
 {
-    $data = file_get_contents(RESOURCES."users.json");
-    return json_decode($data)->users;
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    if ($conn) {
+        $stmt = $conn->prepare("SELECT * FROM users");
+        $stmt->execute();
+
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch();
+        // close connection
+        $conn = null;
+        return $result;
+    }
 }
 
 function logOut()

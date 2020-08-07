@@ -2,7 +2,10 @@ $.ajax({
     url: 'index.php?controller=employee&action=getEmployeeAJAX',
     method: 'GET',
     data: { empID: $_GET('id') }
-}).done(response => fillForm(JSON.parse(response)));
+}).done(response => { 
+    console.log(JSON.parse(response))
+    fillForm(JSON.parse(response))
+});
 
 function $_GET(key) {
     const url = new URL(window.location.href);

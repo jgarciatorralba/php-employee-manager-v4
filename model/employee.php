@@ -36,10 +36,10 @@ function addEmployee(array $newEmployee)
 
         $sql =
             "INSERT INTO 
-                employees (id, avatar, [name], lastName, email, gender, city, streetAddress, [state], age, postalCode, phoneNumber) 
-                values ($id, $avatar, $name, $lastName, $email, $gender, $city, $streetAddress, $state, $parsedAge, $postalCode, $phoneNumber)"
-        ;
-        $conn->exec($sql);
+                employees (id, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) 
+                values ($id, '$avatar', '$name', '$lastName', '$email', '$gender', '$city', '$streetAddress', '$state', $parsedAge, $postalCode, $phoneNumber)"
+        ; 
+        $conn->prepare($sql)->execute();
 
         // close connection
         $conn = null;
@@ -63,14 +63,8 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    // $employees = readEmployees();
-    // $key = array_search($updateEmployee['id'], array_column($employees, 'id'));
-    // if (!is_numeric($key)) return false;
-    // $employees[$key] = $updateEmployee;
-    // return writeEmployees($employees) ? $employees[$key] : false;
-
     $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
-    // $conn->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
+
     if ($conn) {
         $parsedId = intval($updateEmployee['id']);
         $redirect = $updateEmployee['redirect'];
@@ -89,15 +83,15 @@ function updateEmployee(array $updateEmployee)
         $sql = 
             "UPDATE employees 
                 SET 
-                    redirect =$redirect, 
-                    -- avatar = $avatar, 
+                    redirect = '$redirect', 
+                    avatar = '$avatar', 
                     name = '$name', 
-                    -- lastName = $lastName, 
-                    -- email = $email, 
-                    -- gender = $gender, 
-                    -- city = $city, 
-                    streetAddress = $streetAddress, 
-                    -- state = $state, 
+                    lastName = '$lastName', 
+                    email = '$email', 
+                    gender = '$gender', 
+                    city = '$city', 
+                    streetAddress = '$streetAddress', 
+                    state = '$state', 
                     age = $parsedAge, 
                     postalCode = $postalCode, 
                     phoneNumber = $phoneNumber 
@@ -128,17 +122,6 @@ function getEmployee(string $id)
     }
 }
 
-
-function removeAvatar($id)
-{
-    $employees = readEmployees();
-    $key = array_search($id, array_column($employees, 'id'));
-    if (!is_numeric($key)) return false;
-    unset($employees[$key]);
-    return writeEmployees($employees);
-}
-
-
 function getQueryStringParameters(): array
 {
     return $_GET;
@@ -166,12 +149,4 @@ function readEmployees()
         $conn = null;
         return $result;
     }
-}
-
-
-function writeEmployees($data)
-{
-    $data = json_encode($data, JSON_PRETTY_PRINT);
-    $result = file_put_contents(RESOURCES."employees.json", $data);
-    return is_numeric($result);
 }
