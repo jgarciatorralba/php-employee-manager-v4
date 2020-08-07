@@ -30,11 +30,15 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-    $employees = readEmployees();
-    $key = array_search($id, array_column($employees, 'id'));
-    if (!is_numeric($key)) return false;
-    array_splice($employees, $key, 1);
-    return writeEmployees($employees);
+    $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+    if ($conn) {
+        $parsedId = intval($id);
+        $stmt = $conn->prepare("DELETE FROM employees WHERE id = $parsedId");
+        $stmt->execute();
+
+        // close connection
+        $conn = null;
+    }
 }
 
 
