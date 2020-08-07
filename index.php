@@ -1,5 +1,5 @@
 <?php
-require_once "config.php";
+require_once "config/config.php";
 require_once LIB."sessionHelper.php";
 
 if (!isset($_GET["controller"])){
