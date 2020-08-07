@@ -1,6 +1,5 @@
 <?php
 
-// require_once BASE_PATH . "/config/config.php";
 require_once MODEL."employee.php";
 
 $action;
