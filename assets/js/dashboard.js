@@ -11,7 +11,8 @@ $.get("resources/employees.json", function (data) {
         confirmDeleting: true,
         deleteConfirm: 'Are you sure?',
 
-        data: data,
+        // data: data,
+        data: JSON.parse(data),
 
         pageSize: 10,
         pageButtonCount: 5,
