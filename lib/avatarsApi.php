@@ -1,6 +1,6 @@
 <?php
 
-    class avatarsAPI {
+    class AvatarsAPI {
 
         function getAvatars()
         {
@@ -27,5 +27,5 @@
 
     }
 
-    $callToAPI = new avatarsAPI();
+    $callToAPI = new AvatarsAPI();
     echo $callToAPI->getAvatars();
