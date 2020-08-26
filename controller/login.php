@@ -31,7 +31,7 @@
 
         public function goToDashboard()
         {
-            if (activeSession()){
+            if (SessionHelper::activeSession()){
                 include(VIEW."dashboard.php");
             } else {
                 header('Location: index.php');
@@ -40,7 +40,7 @@
 
         public function goToEmployee()
         {
-            if (activeSession()){
+            if (SessionHelper::activeSession()){
                 include(VIEW."employee.php");
             } else {
                 header('Location: index.php');

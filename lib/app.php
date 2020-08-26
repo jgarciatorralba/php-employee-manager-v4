@@ -11,7 +11,7 @@
     function __construct()
     {
       if (!isset($_GET["controller"])){
-        if (activeSession()) {
+        if (SessionHelper::activeSession()) {
             include(VIEW . 'dashboard.php');
         } else {
             include(VIEW . 'login.php');

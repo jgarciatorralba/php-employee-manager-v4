@@ -1,16 +1,26 @@
 <?php
-session_start();
-require_once MODEL."login.php";
+    session_start();
+    require_once MODEL."login.php";
 
-if(activeSession())
-    if (sessionTimeout()) logOut();
+    class SessionHelper {
 
-function activeSession()
-{
-    return isset($_SESSION['username']);
-}
+        public static function checkActiveSession()
+        {
+            if (self::activeSession()){
+                if (self::sessionTimeout()){
+                    logOut();
+                }
+            }
+        }
 
-function sessionTimeout()
-{
-    return time() - $_SESSION['time'] > $_SESSION['lifeTime'];
-}
+        public static function activeSession()
+        {
+            return isset($_SESSION['username']);
+        }
+
+        public function sessionTimeout()
+        {
+            return time() - $_SESSION['time'] > $_SESSION['lifeTime'];
+        }
+
+    }
