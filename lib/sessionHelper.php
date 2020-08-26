@@ -5,11 +5,15 @@
 
     class SessionHelper {
 
+        private $loginModel;
+
         public static function checkActiveSession()
         {
+            $loginModel = new LoginModel();
+
             if (self::activeSession()){
                 if (self::sessionTimeout()){
-                    logOut();
+                    $loginModel->logOut();
                 }
             }
         }
