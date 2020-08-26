@@ -4,17 +4,21 @@
 
     class LoginController {
 
-        /* ~~~ CONTROLLER FUNCTIONS ~~~ */
+        private $loginModel;
+        
+        /* ~~~ CONTROLLER METHODS ~~~ */
 
         public function validateAccess()
         {
+            $this->loginModel = new LoginModel();
+            
             if (isset($_POST['username']) && isset($_POST['password'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 // unset($_POST['username']);
                 // unset($_POST['password']);
             
-                if (checkCredentials($username, $password)) {
+                if ($this->loginModel->checkCredentials($username, $password)) {
                     $_SESSION['username'] = $username;
                     $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
@@ -25,7 +29,7 @@
                 }
                 exit();
             } else {
-                logOut();
+                $this->loginModel->logOut();
             }
         }
 
@@ -59,7 +63,8 @@
 
         public function kickout()
         {
-            logOut();
+            $this->loginModel = new LoginModel();
+            $this->loginModel->logOut();
         }
 
     }
