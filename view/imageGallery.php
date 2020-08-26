@@ -1,11 +1,10 @@
 <div>
-
     <ul id="avatar-gallery" class="avatar-gallery">
-
     </ul>
-
 </div>
+
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $.ajax({

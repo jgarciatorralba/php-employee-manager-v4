@@ -7,7 +7,7 @@
         <input type="text" name="avatar" id="avatarInput" class="d-none">
         <div class="container-sm border p-4 mt-5 employee-container">
 
-            <?php include(LIB.'imageGallery.php'); ?>
+            <?php include(VIEW.'imageGallery.php'); ?>
 
             <div class="row">
                 <div class="col-md">
