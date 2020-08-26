@@ -2,7 +2,7 @@
 
     class AvatarsAPI {
 
-        function getAvatars()
+        public function getAvatars()
         {
             $curl = curl_init();
 
