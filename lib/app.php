@@ -2,8 +2,8 @@
 
   /*
     This class will handle the routing of the web application, 
-    switching between controllers, allowing views ("login", "dashboard" or "error") 
-    if none or an invalid controller is set, or executing controller actions.
+    switching between controllers, allowing views ("login", "dashboard" or "error" 
+    if none or an invalid controller is set), or executing controller actions.
   */
 
   class App {
