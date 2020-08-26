@@ -27,5 +27,5 @@
 
     }
 
-    $callToAPI = new AvatarsAPI();
-    echo $callToAPI->getAvatars();
+    $avatarsAPI = new AvatarsAPI();
+    echo $avatarsAPI->getAvatars();
