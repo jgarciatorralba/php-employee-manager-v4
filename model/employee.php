@@ -7,7 +7,7 @@
         $employees = readEmployees();
         $newEmployee['id'] = getNextIdentifier($employees);
 
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
         if ($conn) {
             $id = $newEmployee['id'];
             if (isset($newEmployee['avatar'])){
@@ -49,7 +49,7 @@
 
     function deleteEmployee(string $id)
     {
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
         if ($conn) {
             $parsedId = intval($id);
             $stmt = $conn->prepare("DELETE FROM employees WHERE id = $parsedId;");
@@ -63,7 +63,7 @@
 
     function updateEmployee(array $updateEmployee)
     {
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
 
         if ($conn) {
             $parsedId = intval($updateEmployee['id']);
@@ -107,7 +107,7 @@
 
     function getEmployee(string $id)
     {
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
         if ($conn) {
             $parsedId = intval($id);
             $stmt = $conn->prepare("SELECT * FROM employees WHERE id = $parsedId;");
@@ -137,7 +137,7 @@
 
     function readEmployees()
     {
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
         if ($conn) {
             $stmt = $conn->prepare("SELECT * FROM employees;");
             $stmt->execute();

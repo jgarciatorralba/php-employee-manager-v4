@@ -10,7 +10,7 @@
 
     function getUser($username)
     {
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
         if ($conn) {
             $stmt = $conn->prepare("SELECT * FROM users WHERE name = '$username';");
             $stmt->execute();
@@ -26,7 +26,7 @@
 
     function getUsers()
     {
-        $conn = setConnection (HOST, DATABASE, USER, PASSWORD);
+        $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
         if ($conn) {
             $stmt = $conn->prepare("SELECT * FROM users");
             $stmt->execute();
