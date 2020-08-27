@@ -11,15 +11,17 @@
     function __construct()
     {
       if (!isset($_GET["controller"])){
+        $controller = new Controller();
         if (SessionHelper::activeSession()) {
-            include(VIEW . 'dashboard.php');
+            $controller->view->render('dashboard');
         } else {
-            include(VIEW . 'login.php');
+            $controller->view->render('login');
         }
       } else {
         $controllerName = $_GET["controller"];
         if (!file_exists(CONTROLLER . $controllerName . ".php")) {
-          include(VIEW . "error.php");
+          $controller = new Controller();
+          $controller->view->render('error');
         } else {
           include(CONTROLLER . $controllerName . ".php");
           $className = $controllerName . "Controller";
