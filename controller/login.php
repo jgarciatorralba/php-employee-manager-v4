@@ -2,11 +2,16 @@
 
     require_once MODEL."login.php";
 
-    class LoginController {
+    class LoginController extends Controller {
 
         private $loginModel;
         
         /* ~~~ CONTROLLER METHODS ~~~ */
+
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
         public function validateAccess()
         {

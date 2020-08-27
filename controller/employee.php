@@ -2,11 +2,16 @@
 
     require_once MODEL."employee.php";
 
-    class EmployeeController {
+    class EmployeeController extends Controller {
 
         private $employeeModel;
         
         /* ~~~ CONTROLLER METHODS ~~~ */
+
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
         public function showEmployees()
         {
