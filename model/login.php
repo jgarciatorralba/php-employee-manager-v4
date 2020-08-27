@@ -16,8 +16,10 @@
         {
             $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
             if ($conn) {
-                $stmt = $conn->prepare("SELECT * FROM users WHERE name = '$username';");
-                $stmt->execute();
+                // Using prepared statements and named parameters (also positional params are an option)
+                $sql = 'SELECT * FROM users WHERE name = :name';
+                $stmt = $conn->prepare($sql);
+                $stmt->execute(['name' => $username]);
 
                 // set the resulting array to associative
                 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -32,6 +34,7 @@
         {
             $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
             if ($conn) {
+                // No need to use prepared statements since no parameters are passed
                 $stmt = $conn->prepare("SELECT * FROM users");
                 $stmt->execute();
 

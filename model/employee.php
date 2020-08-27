@@ -38,12 +38,26 @@
                 $postalCode = $newEmployee['postalCode'];
                 $phoneNumber = $newEmployee['phoneNumber'];
 
-                $sql =
-                    "INSERT INTO 
-                        employees (id, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) 
-                        values ($id, '$avatar', '$name', '$lastName', '$email', '$gender', '$city', '$streetAddress', '$state', $parsedAge, $postalCode, $phoneNumber)"
-                ; 
-                $conn->prepare($sql)->execute();
+                $sql = 
+                    'INSERT INTO 
+                        employees (id, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber)
+                        values (:id, :avatar, :name, :lastName, :email, :gender, :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)';
+                
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([
+                    'id' => $id,
+                    'avatar' => $avatar,
+                    'name' => $name,
+                    'lastName' => $lastName,
+                    'email' => $email,
+                    'gender' => $gender,
+                    'city' => $city,
+                    'streetAddress' => $streetAddress,
+                    'state' => $state,
+                    'age' => $parsedAge,
+                    'postalCode' => $postalCode,
+                    'phoneNumber' => $phoneNumber
+                ]);
 
                 // close connection
                 $conn = null;
@@ -55,8 +69,9 @@
             $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
             if ($conn) {
                 $parsedId = intval($id);
-                $stmt = $conn->prepare("DELETE FROM employees WHERE id = $parsedId;");
-                $stmt->execute();
+                $sql = 'DELETE FROM employees WHERE id = :id';
+                $stmt = $conn->prepare($sql);
+                $stmt->execute(['id' => $parsedId]);
 
                 // close connection
                 $conn = null;
@@ -83,23 +98,38 @@
                 $phoneNumber = $updateEmployee['phoneNumber'];
 
                 $sql = 
-                    "UPDATE employees 
+                    'UPDATE employees
                         SET 
-                            redirect = '$redirect', 
-                            avatar = '$avatar', 
-                            name = '$name', 
-                            lastName = '$lastName', 
-                            email = '$email', 
-                            gender = '$gender', 
-                            city = '$city', 
-                            streetAddress = '$streetAddress', 
-                            state = '$state', 
-                            age = $parsedAge, 
-                            postalCode = $postalCode, 
-                            phoneNumber = $phoneNumber 
-                        WHERE id = $parsedId;"
-                ;
-                $conn->exec($sql);
+                        redirect = :redirect, 
+                        avatar = :avatar, 
+                        name = :name, 
+                        lastName = :lastName, 
+                        email = :email, 
+                        gender = :gender, 
+                        city = :city, 
+                        streetAddress = :streetAddress, 
+                        state = :state, 
+                        age = :age, 
+                        postalCode = :postalCode, 
+                        phoneNumber = :phoneNumber 
+                    WHERE id = :id';
+
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([
+                    'redirect' => $redirect,
+                    'avatar' => $avatar,
+                    'name' => $name,
+                    'lastName' => $lastName,
+                    'email' => $email,
+                    'gender' => $gender,
+                    'city' => $city,
+                    'streetAddress' => $streetAddress,
+                    'state' => $state,
+                    'age' => $parsedAge,
+                    'postalCode' => $postalCode,
+                    'phoneNumber' => $phoneNumber,
+                    'id' => $parsedId
+                ]);
 
                 // close connection
                 $conn = null;
@@ -111,8 +141,9 @@
             $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
             if ($conn) {
                 $parsedId = intval($id);
-                $stmt = $conn->prepare("SELECT * FROM employees WHERE id = $parsedId;");
-                $stmt->execute();
+                $sql = 'SELECT * FROM employees WHERE id = :id';
+                $stmt = $conn->prepare($sql);
+                $stmt->execute(['id' => $parsedId]);
 
                 // set the resulting array to associative
                 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
