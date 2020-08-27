@@ -9,7 +9,7 @@
 
     public function loadModel($model)
     {
-      $url = MODEL . $model . '.php';
+      $url = MODELS . $model . '.php';
 
       if(file_exists($url)){
         require $url;

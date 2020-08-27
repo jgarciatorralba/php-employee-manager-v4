@@ -20,8 +20,7 @@
             
                 if ($this->model->checkCredentials($username, $password)) {
                     $_SESSION['username'] = $username;
-                    $_SESSION['lifeTime'] = 60;
-                    // $_SESSION['lifeTime'] = 600;
+                    $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
                     header('Location: index.php');
                 } else {

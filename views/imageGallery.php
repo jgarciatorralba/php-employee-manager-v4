@@ -8,7 +8,7 @@
 <script>
     $(document).ready(function() {
         $.ajax({
-            url: "lib/avatarsApi.php",
+            url: "libs/avatarsApi.php",
             method: "GET",
             success: function(data) {
                 let gallery = JSON.parse(data);

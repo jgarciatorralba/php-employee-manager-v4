@@ -19,11 +19,11 @@
         }
       } else {
         $controllerName = $_GET["controller"];
-        if (!file_exists(CONTROLLER . $controllerName . ".php")) {
+        if (!file_exists(CONTROLLERS . $controllerName . ".php")) {
           $controller = new Controller();
           $controller->view->render('error');
         } else {
-          include(CONTROLLER . $controllerName . ".php");
+          include(CONTROLLERS . $controllerName . ".php");
           $className = $controllerName . "Controller";
           $controller = new $className;
           $controller->loadModel($controllerName);
