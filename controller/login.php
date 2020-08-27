@@ -1,10 +1,6 @@
 <?php
 
-    require_once MODEL."login.php";
-
     class LoginController extends Controller {
-
-        private $loginModel;
         
         /* ~~~ CONTROLLER METHODS ~~~ */
 
@@ -15,7 +11,6 @@
 
         public function validateAccess()
         {
-            $this->loginModel = new LoginModel();
             
             if (isset($_POST['username']) && isset($_POST['password'])) {
                 $username = $_POST['username'];
@@ -23,9 +18,10 @@
                 // unset($_POST['username']);
                 // unset($_POST['password']);
             
-                if ($this->loginModel->checkCredentials($username, $password)) {
+                if ($this->model->checkCredentials($username, $password)) {
                     $_SESSION['username'] = $username;
-                    $_SESSION['lifeTime'] = 600;
+                    $_SESSION['lifeTime'] = 60;
+                    // $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
                     header('Location: index.php');
                 } else {
@@ -34,14 +30,14 @@
                 }
                 exit();
             } else {
-                $this->loginModel->logOut();
+                $this->model->logOut();
             }
         }
 
         public function goToDashboard()
         {
             if (SessionHelper::activeSession()){
-                include(VIEW."dashboard.php");
+                $this->view->render('dashboard');
             } else {
                 header('Location: index.php');
             }
@@ -50,7 +46,7 @@
         public function goToEmployee()
         {
             if (SessionHelper::activeSession()){
-                include(VIEW."employee.php");
+                $this->view->render('employee');
             } else {
                 header('Location: index.php');
             }
@@ -63,13 +59,12 @@
 
         public function goToError()
         {
-            include(VIEW . 'error.php');
+            $this->view->render('error');
         }
 
         public function kickout()
         {
-            $this->loginModel = new LoginModel();
-            $this->loginModel->logOut();
+            $this->model->logOut();
         }
 
     }
