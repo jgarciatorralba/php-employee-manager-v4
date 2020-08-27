@@ -4,8 +4,12 @@
     require_once "config/db.php";
 
     // Require auxiliar file to check session timeout.
+    session_start();
     require_once LIB."sessionHelper.php";
-    SessionHelper::checkActiveSession();
+    SessionHelper::checkTimeout();
+
+    // Require auxiliar file to manage the database connection.
+    require_once LIB."database.php";
 
     // Require MVC pattern master classes.
     require_once LIB."model.php";
