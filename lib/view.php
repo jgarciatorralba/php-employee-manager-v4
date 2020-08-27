@@ -7,4 +7,9 @@
       
     }
 
+    public function render(string $viewName)
+    {
+      require VIEW . $viewName . '.php';
+    }
+
   }
