@@ -40,7 +40,7 @@
 
                 // set the resulting array to associative
                 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                $result = $stmt->fetch();
+                $result = $stmt->fetchAll();
                 // close connection
                 $conn = null;
                 return $result;
