@@ -26,6 +26,7 @@
           include(CONTROLLER . $controllerName . ".php");
           $className = $controllerName . "Controller";
           $controller = new $className;
+          $controller->loadModel($controllerName);
 
           $action;
           if (isset($_REQUEST["action"])) {
