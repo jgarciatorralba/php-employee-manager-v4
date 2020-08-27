@@ -11,7 +11,7 @@
     function __construct()
     {
       if (!isset($_GET["controller"])){
-        $controller = new Controller();
+        $controller = new Controller();     // parent class (generic Controller)
         if (SessionHelper::activeSession()) {
           $controller->view->render('dashboard');
         } else {
