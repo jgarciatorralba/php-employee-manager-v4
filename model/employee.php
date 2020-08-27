@@ -1,17 +1,20 @@
 <?php
 
-    include_once(LIB."database.php");
-
-    class EmployeeModel {
+    class EmployeeModel extends Model {
 
         /* ~~~ MODEL METHODS ~~~ */
+
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
         public function addEmployee(array $newEmployee)
         {
             $employees = $this->readEmployees();
             $newEmployee['id'] = $this->getNextIdentifier($employees);
 
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
             if ($conn) {
                 $id = $newEmployee['id'];
                 if (isset($newEmployee['avatar'])){
@@ -66,7 +69,7 @@
 
         public function deleteEmployee(string $id)
         {
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
             if ($conn) {
                 $parsedId = intval($id);
                 $sql = 'DELETE FROM employees WHERE id = :id';
@@ -80,7 +83,7 @@
 
         public function updateEmployee(array $updateEmployee)
         {
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
 
             if ($conn) {
                 $parsedId = intval($updateEmployee['id']);
@@ -138,7 +141,7 @@
 
         public function getEmployee(string $id)
         {
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
             if ($conn) {
                 $parsedId = intval($id);
                 $sql = 'SELECT * FROM employees WHERE id = :id';
@@ -167,7 +170,7 @@
 
         public function readEmployees()
         {
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
             if ($conn) {
                 $stmt = $conn->prepare("SELECT * FROM employees;");
                 $stmt->execute();

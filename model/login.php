@@ -1,10 +1,13 @@
 <?php
 
-    include_once(LIB."database.php");
-
-    class LoginModel {
+    class LoginModel extends Model {
 
         /* ~~~ MODEL METHODS ~~~ */
+
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
         public function checkCredentials($username, $password)
         {
@@ -14,7 +17,7 @@
 
         public function getUser($username)
         {
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
             if ($conn) {
                 // Using prepared statements and named parameters (also positional params are an option)
                 $sql = 'SELECT * FROM users WHERE name = :name';
@@ -32,7 +35,7 @@
 
         public function getUsers()
         {
-            $conn = Database::setConnection(HOST, DATABASE, USER, PASSWORD);
+            $conn = $this->database->connect();
             if ($conn) {
                 // No need to use prepared statements since no parameters are passed
                 $stmt = $conn->prepare("SELECT * FROM users");
