@@ -30,7 +30,7 @@
                 }
                 exit();
             } else {
-                $this->model->logOut();
+                SessionHelper::logOut();
             }
         }
 
@@ -64,7 +64,7 @@
 
         public function kickout()
         {
-            $this->model->logOut();
+            SessionHelper::logOut();
         }
 
     }
