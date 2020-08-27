@@ -13,9 +13,9 @@
       if (!isset($_GET["controller"])){
         $controller = new Controller();
         if (SessionHelper::activeSession()) {
-            $controller->view->render('dashboard');
+          $controller->view->render('dashboard');
         } else {
-            $controller->view->render('login');
+          $controller->view->render('login');
         }
       } else {
         $controllerName = $_GET["controller"];
