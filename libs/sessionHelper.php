@@ -1,11 +1,12 @@
 <?php
 
-    class SessionHelper {
+    class SessionHelper
+    {
 
         public static function checkTimeout()
         {
-            if (self::activeSession()){
-                if (self::sessionTimeout()){
+            if (self::activeSession()) {
+                if (self::sessionTimeout()) {
                     self::logOut();
                 }
             }
@@ -16,16 +17,15 @@
             return isset($_SESSION['username']);
         }
 
-        public function sessionTimeout()
+        public static function sessionTimeout()
         {
             return time() - $_SESSION['time'] > $_SESSION['lifeTime'];
         }
 
-        public function logOut()
+        public static function logOut()
         {
             $_SESSION = array();
             session_destroy();
             header("Location: index.php");
         }
-
     }
