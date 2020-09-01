@@ -1,4 +1,5 @@
-$.get("index.php?controller=employee", function (data) {
+// $.get("index.php?controller=employee", function (data) {
+$.get("employee", function (data) {
     $("#jsGrid").jsGrid({
         width: '100%',
 
@@ -44,7 +45,8 @@ $.get("index.php?controller=employee", function (data) {
         },
 
         rowClick: function (args) {
-            location.href = `index.php?controller=employee&action=showEmployeeForm&id=${args.item.id}`;
+            // location.href = `index.php?controller=employee&action=showEmployeeForm&id=${args.item.id}`;
+            location.href = `employee/showEmployeeForm/${args.item.id}`;
         },
 
         fields: [{
