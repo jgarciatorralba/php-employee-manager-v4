@@ -21,7 +21,8 @@
                     $_SESSION['username'] = $username;
                     $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
-                    header('Location: index.php');
+                    header('Location: ../');
+                    // header('Location: index.php');
                 } else {
                     session_destroy();
                     header('Location: index.php?error');
