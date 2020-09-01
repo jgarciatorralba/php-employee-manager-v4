@@ -12,9 +12,9 @@
     require_once LIBS."database.php";
 
     // Require MVC pattern master classes.
-    require_once LIBS."model.php";
-    require_once LIBS."view.php";
-    require_once LIBS."controller.php";
+    require_once LIBS."classes/model.php";
+    require_once LIBS."classes/view.php";
+    require_once LIBS."classes/controller.php";
 
     // Instantiate new "App" object to handle the web application.
     require_once LIBS."app.php";
