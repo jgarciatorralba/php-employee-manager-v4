@@ -6,7 +6,7 @@
     if none or an invalid controller is set), or executing controller actions.
   */
 
-  class App {
+  class Router {
 
     function __construct()
     {
