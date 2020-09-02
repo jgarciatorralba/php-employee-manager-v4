@@ -1,17 +1,17 @@
 $.ajax({
-    url: projectURL + 'employee/getEmployeeAJAX',
-    method: 'GET',
-    data: {
-        empID: $_GET('id')
-    }
+    // url: projectURL + 'employee/getEmployeeAJAX',
+    url: projectURL + 'employee/getEmployeeAJAX/' + getIdFromURL(4),
+    method: 'GET'
 }).done(response => {
     console.log(JSON.parse(response))
     fillForm(JSON.parse(response))
 });
 
-function $_GET(key) {
-    const url = new URL(window.location.href);
-    return url.searchParams.get(key);
+function getIdFromURL(position) {
+    const url = window.location.pathname;
+    const myArray = url.split("/");
+    console.log(myArray);
+    return myArray[position];
 }
 
 function fillForm(employee) {
@@ -30,10 +30,7 @@ $("#avatar-image").click((e) => {
     $("#avatar-gallery").toggle();
 });
 
-
-if ($_GET('success') === 'true') {
-    $('.alert').text(' User updated successfuly.')
-        .fadeIn(800)
-        .delay(4000)
-        .fadeOut(800);
-}
+$('.alert').text('User updated successfully.')
+    .fadeIn(800)
+    .delay(4000)
+    .fadeOut(800);

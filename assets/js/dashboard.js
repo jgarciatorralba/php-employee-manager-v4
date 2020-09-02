@@ -24,7 +24,6 @@ $.get(projectURL + "employee", function (data) {
         controller: {
             insertItem: function (item) {
                 return $.ajax({
-                    // url: 'index.php?controller=employee&action=createEmployeeAJAX',
                     url: projectURL + 'employee/createEmployeeAJAX',
                     method: 'POST',
                     data: item
@@ -34,7 +33,6 @@ $.get(projectURL + "employee", function (data) {
             },
             deleteItem: function (item) {
                 return $.ajax({
-                    // url: 'index.php?controller=employee&action=deleteEmployeeAJAX',
                     url: projectURL + 'employee/deleteEmployeeAJAX',
                     method: 'DELETE',
                     data: {
@@ -45,8 +43,7 @@ $.get(projectURL + "employee", function (data) {
         },
 
         rowClick: function (args) {
-            // location.href = `index.php?controller=employee&action=showEmployeeForm&id=${args.item.id}`;
-            location.href = `employee/showEmployeeForm/${args.item.id}`;
+            location.href = projectURL + `employee/showEmployeeForm/${args.item.id}`;
         },
 
         fields: [{
