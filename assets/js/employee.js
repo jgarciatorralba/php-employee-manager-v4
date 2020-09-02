@@ -1,5 +1,4 @@
 $.ajax({
-    // url: projectURL + 'employee/getEmployeeAJAX',
     url: projectURL + 'employee/getEmployeeAJAX/' + getIdFromURL(4),
     method: 'GET'
 }).done(response => {
