@@ -17,6 +17,11 @@
             $conn = $this->database->connect();
             if ($conn) {
                 $id = $newEmployee['id'];
+                if (isset($newEmployee['redirect'])){
+                    $redirect = $newEmployee['redirect'];
+                } else {
+                    $redirect = "";
+                }
                 if (isset($newEmployee['avatar'])){
                     $avatar = $newEmployee['avatar'];
                 } else {
@@ -43,12 +48,13 @@
 
                 $sql = 
                     'INSERT INTO 
-                        employees (id, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber)
-                        values (:id, :avatar, :name, :lastName, :email, :gender, :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)';
+                        employees (id, redirect, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber)
+                        values (:id, :redirect, :avatar, :name, :lastName, :email, :gender, :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)';
                 
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([
                     'id' => $id,
+                    'redirect' => $redirect,
                     'avatar' => $avatar,
                     'name' => $name,
                     'lastName' => $lastName,
@@ -64,6 +70,8 @@
 
                 // close connection
                 $conn = null;
+
+                return $newEmployee;
             }
         }
 
