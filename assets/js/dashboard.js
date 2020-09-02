@@ -1,5 +1,6 @@
-// $.get("index.php?controller=employee", function (data) {
-$.get("employee", function (data) {
+const projectURL = 'http://localhost/employee-management-v4/';
+
+$.get(projectURL + "employee", function (data) {
     $("#jsGrid").jsGrid({
         width: '100%',
 
@@ -21,12 +22,10 @@ $.get("employee", function (data) {
         align: 'center',
 
         controller: {
-            // loadData: function () {
-            //     return $.ajax('library/employeeController.php');
-            // },
             insertItem: function (item) {
                 return $.ajax({
-                    url: 'index.php?controller=employee&action=createEmployeeAJAX',
+                    // url: 'index.php?controller=employee&action=createEmployeeAJAX',
+                    url: projectURL + 'employee/createEmployeeAJAX',
                     method: 'POST',
                     data: item
                 }).done(response => {
@@ -35,7 +34,8 @@ $.get("employee", function (data) {
             },
             deleteItem: function (item) {
                 return $.ajax({
-                    url: 'index.php?controller=employee&action=deleteEmployeeAJAX',
+                    // url: 'index.php?controller=employee&action=deleteEmployeeAJAX',
+                    url: projectURL + 'employee/deleteEmployeeAJAX',
                     method: 'DELETE',
                     data: {
                         id: item.id

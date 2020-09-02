@@ -1,8 +1,10 @@
 $.ajax({
-    url: 'index.php?controller=employee&action=getEmployeeAJAX',
+    url: projectURL + 'employee/getEmployeeAJAX',
     method: 'GET',
-    data: { empID: $_GET('id') }
-}).done(response => { 
+    data: {
+        empID: $_GET('id')
+    }
+}).done(response => {
     console.log(JSON.parse(response))
     fillForm(JSON.parse(response))
 });
@@ -21,7 +23,7 @@ function fillForm(employee) {
     }
 }
 
-//By default the gallery must remain hidden 
+//By default the gallery must remain hidden
 $("#avatar-gallery").hide();
 //We will only show it when we click on the avatar image
 $("#avatar-image").click((e) => {
