@@ -3,12 +3,12 @@
     </ul>
 </div>
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo constant('URL'); ?>node_modules/jquery/dist/jquery.min.js"></script>
 
 <script>
     $(document).ready(function() {
         $.ajax({
-            url: "libs/avatarsApi.php",
+            url: "<?php echo constant('URL'); ?>libs/avatarsApi.php",
             method: "GET",
             success: function(data) {
                 let gallery = JSON.parse(data);
