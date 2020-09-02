@@ -1,7 +1,7 @@
 <?php include "assets/head.php"; ?>
 <body class="d-flex flex-column min-vh-100">
 <?php include "assets/header.php"; ?>
-    <form action="index.php?controller=employee&action=submitEmployee" method="post">
+    <form action="<?php echo constant('URL'); ?>employee/submitEmployee" method="post">
         <input type="text" name="id" class="d-none">
         <input type="text" name="redirect" class="d-none" value="true">
         <input type="text" name="avatar" id="avatarInput" class="d-none">
@@ -18,9 +18,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="alert alert-success" role="alert" style="display: none;"></div>
-
+            <?php if(property_exists($this, 'success') && ($this->success) == true) { ?>
+                <div class="alert alert-success" role="alert" style="display: none;"></div>
+            <?php } ?>
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
-            <a href="index.php" class="btn btn-secondary mt-2">Return</a>
+            <a href="<?php echo constant('URL'); ?>" class="btn btn-secondary mt-2">Return</a>
         </div>
     </form>
 

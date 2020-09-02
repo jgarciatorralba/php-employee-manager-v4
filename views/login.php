@@ -3,7 +3,7 @@
 <?php include "assets/headerLogin.php"; ?>
 
 <div class="container-sm m-auto">
-    <form class="form-signin text-center" action="login/validateAccess" method="post">
+    <form class="form-signin text-center" action="<?php echo constant('URL'); ?>login/validateAccess" method="post">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputName" class="sr-only">Username</label>
         <input type="text" id="inputName" class="form-control" name="username" placeholder="Username" required autofocus>
