@@ -7,6 +7,7 @@
         public function __construct()
         {
             parent::__construct();
+            $this->view->success = "";
         }
 
         public function showEmployees()
@@ -15,14 +16,17 @@
             echo json_encode($employees);
         }
         
-        public function getEmployeeAJAX()
+        public function getEmployeeAJAX($param = null)
         {
-            $employee = $this->model->getEmployee($_GET["empID"]);
+            $employee = $this->model->getEmployee($param[0]);
             echo json_encode($employee);
         }
         
-        public function showEmployeeForm()
+        public function showEmployeeForm($param = null)
         {
+            if (!empty($param[1])){
+                $this->view->success = true;
+            }
             $this->view->render('employee');
         }
         
@@ -37,10 +41,9 @@
         {
             $employee = $_POST;
             if (count($employee) === 0) return false;
-            isset($employee['id']) && is_numeric($employee['id']) ? $this->model->updateEmployee($employee) : $this->model->addEmployee($employee);
+            isset($employee['id']) && is_numeric($employee['id']) ? $this->model->updateEmployee($employee) : $employee = $this->model->addEmployee($employee);
         
-            // propiety redirect is set if post request is from employee.php
-            if (isset($employee['redirect'])) header('Location: index.php?controller=employee&action=showEmployeeForm&id='.$employee['id'].'&success=true');
+            header('Location: ' . URL . 'employee/showEmployeeForm/' . $employee['id'] . '/success');
         }
         
         public function deleteEmployeeAJAX()
