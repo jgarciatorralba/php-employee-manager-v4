@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<?php 
+<?php
     include "assets/footer.php";
     include "assets/foot.php";
 ?>
