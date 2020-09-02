@@ -1,7 +1,7 @@
 <?php
 
     class LoginController extends Controller {
-        
+
         /* ~~~ CONTROLLER METHODS ~~~ */
 
         public function __construct()
@@ -16,16 +16,15 @@
                 $password = $_POST['password'];
                 // unset($_POST['username']);
                 // unset($_POST['password']);
-            
+                
                 if ($this->model->checkCredentials($username, $password)) {
                     $_SESSION['username'] = $username;
                     $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
-                    header('Location: ../');
-                    // header('Location: index.php');
+                    header('Location: ' . URL);
                 } else {
-                    session_destroy();
-                    header('Location: index.php?error');
+                    $_SESSION['loginError'] = true;
+                    header('Location: ' . URL);
                 }
                 exit();
             } else {
@@ -38,7 +37,7 @@
             if (SessionHelper::activeSession()){
                 $this->view->render('dashboard');
             } else {
-                header('Location: index.php');
+                header('Location: ' . URL);
             }
         }
 
@@ -47,13 +46,13 @@
             if (SessionHelper::activeSession()){
                 $this->view->render('employee');
             } else {
-                header('Location: index.php');
+                header('Location: ' . URL);
             }
         }
 
         public function goToLogin()
         {
-            header('Location: index.php');
+            header('Location: ' . URL);
         }
 
         public function goToError()
