@@ -15,7 +15,6 @@ $.get(projectURL + "employee", function (data) {
 
         // data: data,
         data: JSON.parse(data),
-        // data: console.log(JSON.parse(data)),
 
         pageSize: 10,
         pageButtonCount: 5,
