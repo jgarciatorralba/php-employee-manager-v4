@@ -1,6 +1,6 @@
-<?php include "assets/head.html"; ?>
+<?php include "assets/head.php"; ?>
 <body class="d-flex flex-column min-vh-100">
-<?php include "assets/header.html"; ?>
+<?php include "assets/header.php"; ?>
     <form action="index.php?controller=employee&action=submitEmployee" method="post">
         <input type="text" name="id" class="d-none">
         <input type="text" name="redirect" class="d-none" value="true">
@@ -13,7 +13,7 @@
                 <div class="col-md">
                     <div class="form-group">
                         <div class="avatar-image mx-auto" cla>
-                            <img src="assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded">
+                            <img src="<?php echo constant('URL'); ?>assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded">
                         </div>
                     </div>
                 </div>
@@ -90,9 +90,9 @@
         </div>
     </form>
 
-<?php 
-    include "assets/footer.html"; 
-    include "assets/foot.html";
+<?php
+    include "assets/footer.php";
+    include "assets/foot.php";
 ?>
-<script src="assets/js/employee.js"></script>
+<script src="<?php echo constant('URL'); ?>assets/js/employee.js"></script>
 </body>
