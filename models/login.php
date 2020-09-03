@@ -40,10 +40,10 @@
                     // close connection
                     $conn = null;
                     return $result;
-                } else{
+                } else {
                     return "There was a problem with the database connection";
                 }
-            } catch(PDOException $e){
+            } catch(PDOException $e) {
                 return "There was a problem with the database query";
             }
         }
