@@ -33,21 +33,4 @@
             }
         }
 
-        public function getUsers()
-        {
-            $conn = $this->database->connect();
-            if ($conn) {
-                // No need to use prepared statements since no parameters are passed
-                $stmt = $conn->prepare("SELECT * FROM users");
-                $stmt->execute();
-
-                // set the resulting array to associative
-                $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                $result = $stmt->fetchAll();
-                // close connection
-                $conn = null;
-                return $result;
-            }
-        }
-
     }
