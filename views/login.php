@@ -10,7 +10,7 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" required>
         <?php if (isset($_SESSION['loginError'])) { ?>
-            <div class="alert alert-danger" role="alert">Wrong username or password</div>
+            <div class="alert alert-danger" role="alert"><?php echo $_SESSION['loginError']; ?></div>
         <?php } ?>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
@@ -20,4 +20,5 @@
     include "assets/footer.php";
     include "assets/foot.php";
 ?>
+<script src="<?php echo constant('URL'); ?>assets/js/login.js"></script>
 </body>
