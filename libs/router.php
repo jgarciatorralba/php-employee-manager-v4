@@ -26,6 +26,26 @@
         if (SessionHelper::activeSession()) {
           $controller->view->render('dashboard');
         } else {
+          if (isset($_GET['error'])){
+            switch($_GET['error']){
+              case "session":
+                $message = "The session has expired";
+                break;
+              case "user":
+                $message = "Wrong username or password";
+                break;
+              case "connection":
+                $message = "There was a problem with the database connection";
+                break;
+              case "query":
+                $message = "An error occurred during the query execution";
+                break;
+              default:
+                $message = "";
+            }
+
+            $controller->view->message = $message;
+          }
           $controller->view->render('login');
         }
       /*
