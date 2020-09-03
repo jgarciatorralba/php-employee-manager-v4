@@ -79,7 +79,7 @@
                         return "There was a problem with the database connection";
                     }
                 } catch(PDOException $e) {
-                    return "There was a problem with the database query";
+                    return "There was a problem with the SQL query";
                 }
             }
         }
@@ -102,7 +102,7 @@
                     return "There was a problem with the database connection";
                 }
             } catch(PDOException $e) {
-                return "There was a problem with the database query";
+                return "There was a problem with the SQL query";
             }
         }
 
@@ -167,7 +167,7 @@
                     return "There was a problem with the database connection";
                 }
             } catch(PDOException $e) {
-                return "There was a problem with the database query";
+                return "There was a problem with the SQL query";
             }
         }
 
@@ -191,7 +191,7 @@
                     return "There was a problem with the database connection";
                 }
             } catch (PDOException $e) {
-                return "There was a problem with the database query";
+                return "There was a problem with the SQL query";
             }
         }
 
@@ -219,7 +219,7 @@
                     return "There was a problem with the database connection";
                 }
             } catch (PDOException $e) {
-                return "There was a problem with the database query";
+                return "There was a problem with the SQL query";
             }
         }
 
