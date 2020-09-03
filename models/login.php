@@ -14,10 +14,10 @@
             $user = $this->getUser($username);
 
             if (gettype($user) == 'string'){
-                $_SESSION['loginError'] = $user;
+                return $user;
             } else {
                 if (!password_verify($password, $user["password"])) {
-                    $_SESSION['loginError'] = "Wrong username or password";
+                    return "user";
                 }
             }
 
@@ -41,10 +41,10 @@
                     $conn = null;
                     return $result;
                 } else {
-                    return "There was a problem with the database connection";
+                    return "connection";
                 }
             } catch(PDOException $e) {
-                return "There was a problem with the database query";
+                return "query";
             }
         }
 
