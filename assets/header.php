@@ -12,18 +12,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <!-- <a class="nav-link font-weight-bold" id="dashboard"
-                        href="index.php?controller=login&action=goToDashboard">Dashboard</a> -->
                     <a class="nav-link font-weight-bold" id="dashboard" href="<?php echo constant('URL'); ?>login/goToDashboard">Dashboard</a>
                 </li>
                 <li class="nav-item active">
-                    <!-- <a class="nav-link" id="employee" href="index.php?controller=login&action=goToEmployee">Employee</a> -->
                     <a class="nav-link" id="employee" href="<?php echo constant('URL'); ?>login/goToEmployee">Employee</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <!-- <a class="text-dark m-3" href="index.php?controller=login&action=kickout">Log out</a> -->
     <a class="text-dark m-3" href="<?php echo constant('URL'); ?>login/kickout">Log out</a>
 </header>
 
