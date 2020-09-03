@@ -7,10 +7,9 @@
         {
             if (self::activeSession()) {
                 if (self::sessionTimeout()) {
-                    self::logOut();
-
-                    session_start();
-                    $_SESSION['loginError'] = "The session has expired";
+                    $_SESSION = array();
+                    session_destroy();
+                    header('Location: ' . URL . '?error=session');
                 }
             }
         }
