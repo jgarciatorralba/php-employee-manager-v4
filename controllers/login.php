@@ -23,7 +23,6 @@
                     $_SESSION['time'] = time();
                     header('Location: ' . URL);
                 } else {
-                    $_SESSION['loginError'] = true;
                     header('Location: ' . URL);
                 }
                 exit();
