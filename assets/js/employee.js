@@ -9,7 +9,6 @@ $.ajax({
 function getIdFromURL(position) {
     const url = window.location.pathname;
     const myArray = url.split("/");
-    console.log(myArray);
     return myArray[position];
 }
 
