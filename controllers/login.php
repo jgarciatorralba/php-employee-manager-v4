@@ -17,13 +17,15 @@
                 // unset($_POST['username']);
                 // unset($_POST['password']);
                 
-                if ($this->model->checkCredentials($username, $password)) {
+                $credentials = $this->model->checkCredentials($username, $password);
+                if ($credentials === true) {
                     $_SESSION['username'] = $username;
                     $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
+
                     header('Location: ' . URL);
                 } else {
-                    header('Location: ' . URL);
+                    header('Location: ' . URL . '?error=' . $credentials);
                 }
                 exit();
             } else {
@@ -33,20 +35,14 @@
 
         public function goToDashboard()
         {
-            if (SessionHelper::activeSession()){
-                $this->view->render('dashboard');
-            } else {
-                header('Location: ' . URL);
-            }
+            SessionHelper::checkTimeout();
+            $this->view->render('dashboard');
         }
 
         public function goToEmployee()
         {
-            if (SessionHelper::activeSession()){
-                $this->view->render('employee');
-            } else {
-                header('Location: ' . URL);
-            }
+            SessionHelper::checkTimeout();
+            $this->view->render('employee');
         }
 
         public function goToLogin()
