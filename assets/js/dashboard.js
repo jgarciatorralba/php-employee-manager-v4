@@ -29,7 +29,14 @@ $.get(projectURL + "employee", function (data) {
                         method: 'POST',
                         data: item
                     }).done(response => {
-                        return response;
+                        if (response === "") {
+                            return response;
+                        } else {
+                            $('#error-jsGrid').text(JSON.parse(response))
+                                .fadeIn(800)
+                                .delay(4000)
+                                .fadeOut(800);
+                        }
                     }).fail(console.log);
                 },
                 deleteItem: function (item) {
@@ -38,6 +45,15 @@ $.get(projectURL + "employee", function (data) {
                         method: 'DELETE',
                         data: {
                             id: item.id
+                        }
+                    }).done(response => {
+                        // response = JSON.parse(response);
+                        console.log(response);
+                        if (typeof (response) == 'string') {
+                            $('#error-jsGrid').text(response)
+                                .fadeIn(800)
+                                .delay(4000)
+                                .fadeOut(800);
                         }
                     }).fail(console.log);
                 }
