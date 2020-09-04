@@ -18,7 +18,11 @@
         
         public function getEmployeeAJAX($param = null)
         {
-            $employee = $this->model->getEmployee($param[0]);
+            if (!empty($param[0])){
+                $employee = $this->model->getEmployee($param[0]);
+            } else {
+                $employee = $this->model->getEmployee(0);
+            }
             echo json_encode($employee);
         }
         
