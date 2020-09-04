@@ -10,9 +10,13 @@
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" required>
 
-            <?php if(property_exists($this, 'message')) { ?>
-                <div class="error-login alert alert-danger" role="alert"><?php echo $this->message; ?></div>
-            <?php } ?>
+            <?php
+            if(property_exists($this, 'message') && $this->message != "") {
+                echo '<div class="error-login alert alert-danger" role="alert">';
+                    echo $this->message;
+                echo '</div>';
+            };
+            ?>
             
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
