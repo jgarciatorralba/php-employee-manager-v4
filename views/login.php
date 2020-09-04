@@ -11,7 +11,7 @@
             <input type="password" id="inputPassword" class="form-control mb-3" name="password" placeholder="Password" required>
 
             <?php if(property_exists($this, 'message')) { ?>
-                <div id="error-login" class="alert alert-danger" role="alert"><?php echo $this->message; ?></div>
+                <div class="error-login alert alert-danger" role="alert"><?php echo $this->message; ?></div>
             <?php } ?>
             
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -24,7 +24,7 @@
     ?>
     <script>
         // Animation effect for the success message on submitting form
-        $('#error-login')
+        $('.error-login')
             .fadeIn(800)
             .delay(4000)
             .fadeOut(800);
