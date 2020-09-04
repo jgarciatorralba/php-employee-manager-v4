@@ -38,10 +38,6 @@ $("#avatar-image").click((e) => {
 });
 
 // Animation effect for the success message on submitting form
-// $('.alert').text('User updated successfully.')
-//     .fadeIn(800)
-//     .delay(4000)
-//     .fadeOut(800);
 $('#success')
     .fadeIn(800)
     .delay(4000)
