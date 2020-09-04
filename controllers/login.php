@@ -7,6 +7,7 @@
         public function __construct()
         {
             parent::__construct();
+            $this->view->message = "";
         }
 
         public function validateAccess()
@@ -23,11 +24,21 @@
                     $_SESSION['lifeTime'] = 600;
                     $_SESSION['time'] = time();
 
-                    header('Location: ' . URL);
-                    // $this->view->render('dashboard');
+                    $this->view->render('dashboard');
                 } else {
-                    header('Location: ' . URL . '?error=' . $credentials);
-                    // $this->view->render('login');
+                    switch ($credentials){
+                        case 'connection':
+                            $message = "There was a problem with the database connection";
+                            break;
+                        case 'query':
+                            $message = "An error occurred during the query execution";
+                            break;
+                        default:
+                            $message = "Wrong username or password";
+                            break;
+                    }
+                    $this->view->message = $message;
+                    $this->view->render('login');
                 }
                 exit();
             } else {
