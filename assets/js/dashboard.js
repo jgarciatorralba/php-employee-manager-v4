@@ -47,8 +47,8 @@ $.get(projectURL + "employee", function (data) {
                             id: item.id
                         }
                     }).done(response => {
-                        // response = JSON.parse(response);
-                        console.log(response);
+                        response = JSON.parse(response);
+                        // console.log(response);
                         if (typeof (response) == 'string') {
                             $('.error-jsGrid').text(response)
                                 .fadeIn(800)
