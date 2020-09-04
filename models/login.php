@@ -13,7 +13,7 @@
         {
             $user = $this->getUser($username);
 
-            if (gettype($user) == 'string'){
+            if (gettype($user) != 'array'){
                 return $user;
             } else {
                 if (!password_verify($password, $user["password"])) {
