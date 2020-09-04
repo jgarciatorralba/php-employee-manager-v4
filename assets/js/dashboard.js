@@ -3,22 +3,21 @@ const projectURL = 'http://localhost/employee-management-v4/';
 $.get(projectURL + "employee", function (data) {
     if (typeof (JSON.parse(data)) != 'string') {
         $("#jsGrid").jsGrid({
+            height: "auto",
             width: '100%',
-
             filtering: false,
             inserting: true,
             editing: false,
             sorting: true,
             paging: true,
             autoload: true,
+            pageSize: 10,
+            pageButtonCount: 5,
             confirmDeleting: true,
-            deleteConfirm: 'Are you sure?',
+            deleteConfirm: "Do you really want to delete this employee?",
 
             // data: data,
             data: JSON.parse(data),
-
-            pageSize: 10,
-            pageButtonCount: 5,
 
             align: 'center',
 
@@ -63,68 +62,92 @@ $.get(projectURL + "employee", function (data) {
                 location.href = projectURL + `employee/showEmployeeForm/${args.item.id}`;
             },
 
+            // Callback function to add a valid "id" before a new employee is inserted
+            onItemInserting: function (args) {
+                // Check if the email already exists in the DB and if so send alert message.
+                let gridData = $("#jsGrid").jsGrid("option", "data");
+                for (var i = 0; i < gridData.length; i++) {
+                    if (args.item.email === gridData[i].email) {
+                        args.cancel = true;
+                        alert("Email " + args.item.email + " already exists! Repeated items cannot be inserted.");
+                        break;
+                    }
+                }
+                // Add missing "id" for newly inserted employees.
+                if (args.item.id === undefined) {
+                    $.ajax({
+                        url: projectURL + 'employee/getNextIdentifierAJAX'
+                    }).done(function (response) {
+                        args.item.id = response;
+                    });
+                }
+            },
+
             fields: [{
                     name: 'id',
-                    type: 'number',
-                    visible: false
+                    title: 'Id',
+                    visible: false,
+                    width: 0
                 },
                 {
                     name: 'name',
                     type: 'text',
                     title: 'Name',
-                    width: 80
+                    width: 100
                 },
                 {
                     name: 'email',
                     type: 'text',
-                    title: 'Email'
+                    title: 'Email',
+                    width: 200
                 },
                 {
                     name: 'age',
                     type: 'number',
                     title: 'Age',
-                    width: 40
+                    width: 75
                 },
                 {
                     name: 'streetAddress',
                     type: 'text',
                     title: 'Street No.',
-                    width: 80
+                    width: 100
                 },
                 {
                     name: 'city',
                     type: 'text',
                     title: 'City',
+                    width: 120
                 },
                 {
                     name: 'state',
                     type: 'text',
                     title: 'State',
-                    width: 40
+                    width: 70
                 },
                 {
                     name: 'postalCode',
                     type: 'text',
                     title: 'Postal Code',
-                    width: 80
+                    width: 100
                 },
                 {
                     name: 'phoneNumber',
                     type: 'text',
                     title: 'Phone Number',
+                    width: 140
                 },
                 {
                     type: 'control',
-                    editButton: false
+                    editButton: false,
+                    width: 50
                 }
             ]
         })
     } else {
-        // console.log(data)
         $('.error-jsGrid').text(data)
             .fadeIn(800)
             .delay(4000)
             .fadeOut(800);
     }
-
 });
