@@ -25,7 +25,11 @@
         public function showEmployeeForm($param = null)
         {
             if (!empty($param[1])){
-                $this->view->success = true;
+                if ($param[1] == 'success'){
+                    $this->view->success = true;
+                } else {
+                    $this->view->success = false;
+                }
             }
             $this->view->render('employee');
         }
@@ -54,6 +58,8 @@
                 $queryResult = $this->model->updateEmployee($employee);
                 if (gettype($queryResult) == 'integer') {
                     header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult . '/success');
+                } elseif ($queryResult == 'There was a problem with the SQL query') {
+                    header('Location: ' . URL . 'employee/showEmployeeForm/' . $employee['id'] . '/fail');
                 } else {
                     header('Location: ' . URL . 'employee/showEmployeeForm/' . $employee['id']);
                 }
@@ -61,6 +67,8 @@
                 $queryResult = $this->model->addEmployee($employee);
                 if (gettype($queryResult) == 'integer') {
                     header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult . '/success');
+                } elseif ($queryResult == 'There was a problem with the SQL query') {
+                    header('Location: ' . URL . 'employee/showEmployeeForm/0/fail');
                 } else {
                     header('Location: ' . URL . 'employee/showEmployeeForm/0');
                 }

@@ -26,6 +26,12 @@
             }
             ?>
 
+            <?php
+            if(property_exists($this, 'success') && ($this->success) === false) {
+                echo '<div class="success alert alert-danger" role="alert" style="display: none;">There was a problem with the SQL query</div>';
+            }
+            ?>
+
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
