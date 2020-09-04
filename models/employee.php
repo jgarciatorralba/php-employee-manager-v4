@@ -49,8 +49,8 @@
                         $postalCode = $newEmployee['postalCode'];
                         $phoneNumber = $newEmployee['phoneNumber'];
 
-                        $sql = 
-                            'INSERT INTO 
+                        $sql =
+                            'INSERT INTO
                                 employees (id, redirect, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber)
                                 values (:id, :redirect, :avatar, :name, :lastName, :email, :gender, :city, :streetAddress, :state, :age, :postalCode, :phoneNumber)';
                         
@@ -74,7 +74,6 @@
                         // close connection
                         $conn = null;
 
-                        // return $newEmployee;
                         return $id;
                     } else {
                         return "There was a problem with the database connection";
@@ -163,7 +162,6 @@
                     // close connection
                     $conn = null;
 
-                    // return true;
                     return $parsedId;
                 } else {
                     return "There was a problem with the database connection";
