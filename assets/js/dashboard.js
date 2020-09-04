@@ -32,7 +32,7 @@ $.get(projectURL + "employee", function (data) {
                         if (response === "") {
                             return response;
                         } else {
-                            $('#error-jsGrid').text(JSON.parse(response))
+                            $('.error-jsGrid').text(JSON.parse(response))
                                 .fadeIn(800)
                                 .delay(4000)
                                 .fadeOut(800);
@@ -50,7 +50,7 @@ $.get(projectURL + "employee", function (data) {
                         // response = JSON.parse(response);
                         console.log(response);
                         if (typeof (response) == 'string') {
-                            $('#error-jsGrid').text(response)
+                            $('.error-jsGrid').text(response)
                                 .fadeIn(800)
                                 .delay(4000)
                                 .fadeOut(800);
@@ -121,7 +121,7 @@ $.get(projectURL + "employee", function (data) {
         })
     } else {
         // console.log(data)
-        $('#error-jsGrid').text(data)
+        $('.error-jsGrid').text(data)
             .fadeIn(800)
             .delay(4000)
             .fadeOut(800);

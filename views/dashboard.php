@@ -2,7 +2,7 @@
 <body class="d-flex flex-column min-vh-100">
 <?php include "assets/header.php"; ?>
     <div class="container mt-5">
-        <div id="error-jsGrid" class="alert alert-danger text-center" role="alert" style="display: none;"></div>
+        <div class="error-jsGrid alert alert-danger text-center" role="alert" style="display: none;"></div>
         <div id="jsGrid"></div>
     </div>
 
