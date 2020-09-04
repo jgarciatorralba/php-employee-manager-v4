@@ -18,9 +18,12 @@
                     </div>
                 </div>
             </div>
+            <div id="error" class="alert alert-danger" role="alert" style="display: none;"></div>
+
             <?php if(property_exists($this, 'success') && ($this->success) == true) { ?>
-                <div class="alert alert-success" role="alert" style="display: none;"></div>
+                <div id="success" class="alert alert-success" role="alert" style="display: none;">User updated successfully</div>
             <?php } ?>
+
             <div class="row">
                 <div class="col-md">
                     <div class="form-group">
