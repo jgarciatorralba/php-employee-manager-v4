@@ -45,8 +45,6 @@
             } else {
                 return $createdEmployee;
             }
-
-            // return $this->model->addEmployee($employee);
         }
         
         public function submitEmployee()
