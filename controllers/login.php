@@ -24,8 +24,10 @@
                     $_SESSION['time'] = time();
 
                     header('Location: ' . URL);
+                    // $this->view->render('dashboard');
                 } else {
                     header('Location: ' . URL . '?error=' . $credentials);
+                    // $this->view->render('login');
                 }
                 exit();
             } else {
