@@ -49,9 +49,22 @@
         {
             $employee = $_POST;
             if (count($employee) === 0) return false;
-            isset($employee['id']) && is_numeric($employee['id']) ? $this->model->updateEmployee($employee) : $employee = $this->model->addEmployee($employee);
-        
-            header('Location: ' . URL . 'employee/showEmployeeForm/' . $employee['id'] . '/success');
+
+            if (isset($employee['id']) && is_numeric($employee['id'])){
+                $queryResult = $this->model->updateEmployee($employee);
+                if (gettype($queryResult) == 'integer') {
+                    header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult . '/success');
+                } else {
+                    header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult);
+                }
+            } else {
+                $queryResult = $this->model->addEmployee($employee);
+                if (gettype($queryResult) == 'integer') {
+                    header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult . '/success');
+                } else {
+                    header('Location: ' . URL . 'employee/showEmployeeForm/0');
+                }
+            }
         }
         
         public function deleteEmployeeAJAX()
