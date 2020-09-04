@@ -10,6 +10,13 @@
             $this->view->success = "";
         }
 
+        public function getNextIdentifierAJAX()
+        {
+            $employees = $this->model->readEmployees();
+            $nextId = $this->model->getNextIdentifier($employees);
+            echo $nextId;
+        }
+
         public function showEmployees()
         {
             $employees = $this->model->readEmployees();
