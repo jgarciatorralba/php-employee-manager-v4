@@ -74,7 +74,8 @@
                         // close connection
                         $conn = null;
 
-                        return $newEmployee;
+                        // return $newEmployee;
+                        return $id;
                     } else {
                         return "There was a problem with the database connection";
                     }
@@ -162,7 +163,8 @@
                     // close connection
                     $conn = null;
 
-                    return true;
+                    // return true;
+                    return $parsedId;
                 } else {
                     return "There was a problem with the database connection";
                 }
