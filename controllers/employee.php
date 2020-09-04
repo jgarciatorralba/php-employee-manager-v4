@@ -34,7 +34,15 @@
         {
             $employee = $_POST;
             if (count($employee) === 0) return false;
-            return $this->model->addEmployee($employee);
+            
+            $createdEmployee = $this->model->addEmployee($employee);
+            if (gettype($createdEmployee) == 'string'){
+                echo json_encode($createdEmployee);
+            } else {
+                return $createdEmployee;
+            }
+
+            // return $this->model->addEmployee($employee);
         }
         
         public function submitEmployee()
@@ -50,7 +58,7 @@
         {
             parse_str(file_get_contents("php://input"), $data);
             if (!isset($data['id'])) return false;
-            return $this->model->deleteEmployee($data['id']);
+            echo json_encode($this->model->deleteEmployee($data['id']));
         }
 
     }
