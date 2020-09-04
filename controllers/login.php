@@ -15,8 +15,6 @@
             if (isset($_POST['username']) && isset($_POST['password'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                // unset($_POST['username']);
-                // unset($_POST['password']);
                 
                 $credentials = $this->model->checkCredentials($username, $password);
                 if ($credentials === true) {
