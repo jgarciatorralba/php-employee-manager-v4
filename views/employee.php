@@ -18,11 +18,11 @@
                     </div>
                 </div>
             </div>
-            <div id="error" class="alert alert-danger" role="alert" style="display: none;"></div>
+            <div class="error alert alert-danger" role="alert" style="display: none;"></div>
 
             <?php
             if(property_exists($this, 'success') && ($this->success) === true) {
-                echo '<div id="success" class="alert alert-success" role="alert" style="display: none;">User updated successfully</div>';
+                echo '<div class="success alert alert-success" role="alert" style="display: none;">User updated successfully</div>';
             }
             ?>
 

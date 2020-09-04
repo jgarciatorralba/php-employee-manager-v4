@@ -8,7 +8,7 @@ $.ajax({
     if (typeof (response) == 'object') {
         fillForm(response)
     } else if (response !== false) {
-        $('#error').text(response)
+        $('.error').text(response)
             .fadeIn(800)
             .delay(4000)
             .fadeOut(800);
@@ -38,7 +38,7 @@ $("#avatar-image").click((e) => {
 });
 
 // Animation effect for the success message on submitting form
-$('#success')
+$('.success')
     .fadeIn(800)
     .delay(4000)
     .fadeOut(800);
