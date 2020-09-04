@@ -55,7 +55,7 @@
                 if (gettype($queryResult) == 'integer') {
                     header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult . '/success');
                 } else {
-                    header('Location: ' . URL . 'employee/showEmployeeForm/' . $queryResult);
+                    header('Location: ' . URL . 'employee/showEmployeeForm/' . $employee['id']);
                 }
             } else {
                 $queryResult = $this->model->addEmployee($employee);
