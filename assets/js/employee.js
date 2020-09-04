@@ -2,8 +2,17 @@ $.ajax({
     url: projectURL + 'employee/getEmployeeAJAX/' + getIdFromURL(4),
     method: 'GET'
 }).done(response => {
-    console.log(JSON.parse(response))
-    fillForm(JSON.parse(response))
+    // console.log(JSON.parse(response));
+
+    response = JSON.parse(response);
+    if (typeof (response) == 'object') {
+        fillForm(response)
+    } else {
+        $('#error').text(response)
+            .fadeIn(800)
+            .delay(4000)
+            .fadeOut(800);
+    }
 });
 
 function getIdFromURL(position) {
@@ -29,7 +38,11 @@ $("#avatar-image").click((e) => {
 });
 
 // Animation effect for the success message on submitting form
-$('.alert').text('User updated successfully.')
+// $('.alert').text('User updated successfully.')
+//     .fadeIn(800)
+//     .delay(4000)
+//     .fadeOut(800);
+$('#success')
     .fadeIn(800)
     .delay(4000)
     .fadeOut(800);
