@@ -7,7 +7,7 @@ $.ajax({
     response = JSON.parse(response);
     if (typeof (response) == 'object') {
         fillForm(response)
-    } else {
+    } else if (response !== false) {
         $('#error').text(response)
             .fadeIn(800)
             .delay(4000)
