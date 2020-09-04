@@ -9,7 +9,7 @@
                 if (self::sessionTimeout()) {
                     $_SESSION = array();
                     session_destroy();
-                    header('Location: ' . URL . '?error=session');
+                    header('Location: ' . URL . '?timeout');
                 }
             }
         }
