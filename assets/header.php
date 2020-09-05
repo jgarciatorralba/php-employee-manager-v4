@@ -1,10 +1,9 @@
 <header class="d-flex flex-row align-items-center bg-light border-bottom">
     <nav class="navbar navbar-expand-sm mr-auto navbar-light">
         <a class="navbar-brand">
-            <img src="<?php echo constant('URL'); ?>assets/img/assembler-school.jpg" class="rounded" width="30" height="30"
-                alt="assembler school logo">
+            <img src="<?php echo constant('URL'); ?>assets/img/assembler-school.jpg" class="rounded" width="30" height="30" alt="assembler school logo">
         </a>
-        <a class="navbar-brand">Assembler School</a>
+        <a class="navbar-brand d-none d-sm-inline-block">Assembler School</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +19,7 @@
             </ul>
         </div>
     </nav>
-    <a class="text-dark m-3" href="<?php echo constant('URL'); ?>login/kickout">Log out</a>
+    <a class="text-primary text-decoration-none m-3" href="<?php echo constant('URL'); ?>login/kickout">Log out</a>
 </header>
 
 <script>
