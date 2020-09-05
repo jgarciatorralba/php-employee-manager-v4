@@ -16,6 +16,6 @@
     require_once LIBS."classes/view.php";
     require_once LIBS."classes/controller.php";
 
-    // Instantiate new "App" object to handle the web application.
+    // Instantiate new "Router" object to handle the web application.
     require_once LIBS."router.php";
     $router = new Router();
