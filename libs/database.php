@@ -61,11 +61,11 @@
         $sql = "
           INSERT INTO employees
           (id, redirect, avatar, name, lastName, email, gender, city, streetAddress, state, age, postalCode, phoneNumber) values
-          (1, 'true', 'https:\/\/uifaces.co\/our-content\/donated\/5N18dOsU.jpg', 'Rack', 'Leilax', 'jackon@network.com', 'man', 'San Jone', '126', 'CA', 24, 394221, 738362764),
-          (2, 'true', 'https:\/\/i.imgur.com\/oC8EjRE.jpg', 'Joanna', 'Doe', 'jhondoe@foo.com', 'woman', 'New York', '89', 'WA', 36, 09889, 128364564),
-          (3, 'true', 'https:\/\/i.imgur.com\/kcPMLNS.jpg', 'Sheila', 'Millshake', 'mills@leila.com', 'woman', 'San Diego', '55', 'CA', 29, 098765, 998363246),
-          (4, 'true', 'https:\/\/images.generated.photos\/AxsZ-fY9aewY9U0TjnqC64gnbPZ7hLReHgVonw2PNR8\/rs:fit:512:512\/Z3M6Ly9nZW5lcmF0\/ZWQtcGhvdG9zL3Yy\/XzA2NzUxMTkuanBn.jpg', 'Ricarda', 'Desmond', 'dismond@foo.com', 'woman', 'Salt lake city', '90', 'UT', 30, 457320, 908769876),
-          (5, 'true', 'https:\/\/randomuser.me\/api\/portraits\/women\/76.jpg', 'Susan', 'Smith', 'susanmith@baz.com', 'woman', 'Louisville', '43', 'KNT', 28, 445321, 224355488);
+          (1, 'true', 'https:\/\/uifaces.co\/our-content\/donated\/5N18dOsU.jpg', 'Jack', 'Lei', 'jackon@network.com', 'man', 'San Jose', '126', 'CA', 24, 394221, 738362764),
+          (2, 'true', 'https:\/\/images.generated.photos\/2I8a-p549TkdrqgBf3s2ijlitawgb6zTuYRB7SGMYEc\/rs:fit:512:512\/Z3M6Ly9nZW5lcmF0\/ZWQtcGhvdG9zL3Yy\/XzA5NjQyMDMuanBn.jpg', 'John', 'Doe', 'jhondoe@foo.com', 'man', 'New York', '89', 'NY', 36, 09889, 128364564),
+          (3, 'true', 'https:\/\/i.imgur.com\/kcPMLNS.jpg', 'Leila', 'Mills', 'mills@leila.com', 'woman', 'San Diego', '55', 'CA', 29, 098765, 998363246),
+          (4, 'true', 'https:\/\/uifaces.co\/our-content\/donated\/rlZDBrY_.jpeg', 'Richard', 'Desmond', 'desmondr@foo.com', 'man', 'Salt Lake City', '90', 'UT', 30, 457320, 908769876),
+          (5, 'true', 'https:\/\/randomuser.me\/api\/portraits\/women\/76.jpg', 'Susan', 'Smith', 'susansmith@baz.com', 'woman', 'Louisville', '43', 'KNT', 28, 445321, 224355488);
         ";
         $this->executeSQLQuery($sql);
 
