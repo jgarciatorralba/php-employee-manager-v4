@@ -11,7 +11,7 @@ $.get(projectURL + "employee", function (data) {
             sorting: true,
             paging: true,
             autoload: true,
-            pageSize: 10,
+            pageSize: 5,
             pageButtonCount: 5,
             confirmDeleting: true,
             deleteConfirm: "Do you really want to delete this employee?",
