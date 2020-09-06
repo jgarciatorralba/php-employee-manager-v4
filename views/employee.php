@@ -9,15 +9,6 @@
 
             <?php include(VIEWS.'imageGallery.php'); ?>
 
-            <div class="row">
-                <div class="col-md">
-                    <div class="form-group">
-                        <div class="avatar-image mx-auto" cla>
-                            <img src="<?php echo constant('URL'); ?>assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="rounded">
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="error alert alert-danger" role="alert" style="display: none;"></div>
 
             <?php
@@ -31,6 +22,16 @@
                 echo '<div class="success alert alert-danger" role="alert" style="display: none;">There was a problem with the SQL query</div>';
             }
             ?>
+
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-group d-flex justify-content-center">
+                        <div class="mx-auto">
+                            <img src="<?php echo constant('URL'); ?>assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="avatar-image border">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-md">
@@ -106,4 +107,5 @@
     include "assets/foot.php";
 ?>
 <script src="<?php echo constant('URL'); ?>assets/js/employee.js"></script>
+<script src="<?php echo constant('URL'); ?>assets/js/imageGallery.js"></script>
 </body>
