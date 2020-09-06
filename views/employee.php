@@ -27,7 +27,7 @@
                 <div class="col-md">
                     <div class="form-group d-flex justify-content-center">
                         <div class="mx-auto">
-                            <img src="<?php echo constant('URL'); ?>assets/img/no-foto.jpg" id="avatar-image" alt="avatar" class="avatar-image border">
+                            <img src="<?php echo constant('URL'); ?>assets/img/no-photo.jpg" id="avatar-image" alt="avatar" class="avatar-image border">
                         </div>
                     </div>
                 </div>
