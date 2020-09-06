@@ -18,7 +18,7 @@
 }
 
 .avatar-image {
-    width: 125px;
+    /* width: 125px; */
     height: 125px;
 }
 
@@ -67,4 +67,30 @@
 
 #error_404 {
     width: 50%;
+}
+
+/* STYLES USED IN THE EMPLOYEE IMAGE FEATURE */
+
+.img-cont {
+    height: calc(132px + 0.5rem);
+    white-space: nowrap !important;
+    overflow-x: scroll !important;
+}
+
+.img-cont img {
+    height: 120px !important;
+    opacity: 0.8;
+}
+
+.img-cont img:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.img-selected {
+    opacity: 1 !important;
+}
+
+.avatar-image:hover {
+    cursor: pointer;
 }
