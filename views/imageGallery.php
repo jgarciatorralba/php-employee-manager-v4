@@ -1,28 +1,16 @@
-<div>
-    <ul id="avatar-gallery" class="avatar-gallery">
-    </ul>
+<div id="gallery-cont" class="container-fluid w-75 mb-3 py-2 d-none">
+    <div class="row border-bottom mb-3">
+        <h2 class="m-0 p-2">
+            Avatar
+        </h2>
+    </div>
+    <div class="row border-bottom pb-2">
+        <div class="text-center mx-auto h-50 align-self-center error-cont d-none">
+            <h5 class="my-3">
+                Images could not be loaded. Please try again later.
+            </h5>
+        </div>
+        <div class="img-cont">
+        </div>
+    </div>
 </div>
-
-<script src="<?php echo constant('URL'); ?>node_modules/jquery/dist/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $.ajax({
-            url: "<?php echo constant('URL'); ?>libs/avatarsApi.php",
-            method: "GET",
-            success: function(data) {
-                let gallery = JSON.parse(data);
-                console.log(gallery);
-                for (let avatar of gallery) {
-                    $("#avatar-gallery").append(`<li><img src="${avatar.photo}" alt="avatar" class="gallery-image rounded border" width="100" height="100"></li>`);
-                    $(`img[src="${avatar.photo}"]`).click(function(event) {
-                        const image = $(event.target);
-                        const url = image.attr('src');
-                        $('#avatar-image').attr('src', url);
-                        $('#avatarInput').val(url);
-                    })
-                }
-            }
-        })
-    })
-</script>
