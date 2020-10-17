@@ -1,4 +1,4 @@
-# PHP BASIC APPLICATION TO MANAGE AN EMPLOYEES LIST
+# PHP Employee Manager (v4)
 
 ## Application main points
 
